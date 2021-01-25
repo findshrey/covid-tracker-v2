@@ -1,0 +1,28 @@
+.main-head {
+   background: darken($c-white, 3%);
+   position: fixed;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 2rem;
+   text-align: center;
+}
+
+.logo {
+   font-size: $font-l;
+   writing-mode: vertical-rl;
+   text-orientation: upright;
+   // letter-spacing: 2px;
+
+   span {
+      color: $c-blue;
+      font-size: $font-l;
+   }
+}
+
+.theme-icon svg {
+   font-size: 2.5rem;
+   // fill: $c-blue;
+   stroke: $c-blue;
+}

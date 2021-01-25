@@ -1,9 +1,23 @@
 // Fonts
+$font-primary: 'Source Sans Pro', sans-serif; //200,300,400,600,700,900
 
 // Header(Tag) sizes
+// $h1: clamp(4.5rem, calc(3rem + 4vw), 9rem);
+// $h2: clamp(2.5rem, calc(2rem + 1vw), 4rem);
+// $h3: clamp(1.4rem, calc(1rem + 0.75vw), 2rem);
 
 // Text Sizes
+$font-l: clamp(1.8rem, calc(1.5rem + 0.75vw), 2.4rem);
+$font-m: clamp(1.5rem, calc(1rem + 0.6vw), 1.8rem);
+$font-s: clamp(1.2rem, calc(1rem + 0.6vw), 1.5rem);
 
 // Colors
+$c-black: #252525;
+$c-white: #fff;
+$c-gray: #6c757d;
+$c-blue: #2c5df0;
+// $c-red: #e41920;
+// $c-golden: #af9972;
 
 // Section padding
+$section-padding: clamp(6rem, calc(5rem + 2vw), 8rem) 0;
