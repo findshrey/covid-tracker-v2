@@ -21,8 +21,11 @@ const Statistics = () => {
          <div className="container">
             <div className="stats-left">
                <Summary
-                  summary={Object.keys(covidStats).length > 0 ? covidStats.statewise[0] : {}}
+                  summary={Object.keys(covidStats).length > 0 && covidStats.statewise[0]}
                />
+            </div>
+            <div className="stats-right">
+
             </div>
          </div>
       </section>

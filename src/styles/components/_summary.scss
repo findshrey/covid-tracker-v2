@@ -1,3 +1,44 @@
 // Summary
+.summary {
+   // display: flex;
+   // justify-content: space-between;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: 20rem;
+   // justify-items: center;
+}
 
 // SummaryBox
+.summary-box {
+   text-align: center;
+   // padding: 1rem;
+   
+   &:nth-child(1) {
+      color: $c-red;
+
+      svg {
+         fill: $c-red;
+      }
+   }
+   &:nth-child(2) {
+      color: $c-blue;
+
+      svg {
+         fill: $c-blue;
+      }
+   }
+   &:nth-child(3) {
+      color: $c-green;
+
+      svg {
+         fill: $c-green;
+      }
+   }
+   &:nth-child(4) {
+      color: $c-gray;
+
+      svg {
+         fill: $c-gray;
+      }
+   }
+}

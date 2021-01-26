@@ -1,0 +1,15 @@
+.statistics {
+   padding: $section-padding;
+   
+   .container {
+      display: flex;
+   }
+}
+
+.stats-left {
+   flex: 1;
+}
+
+.stats-right {
+   flex: 1;
+}
