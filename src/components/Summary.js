@@ -1,27 +1,7 @@
 import React from 'react'
-import IconConfirmed from './icons/IconConfirmed'
-import IconActive from './icons/IconActive'
-import IconRecovered from './icons/IconRecovered'
-import IconDeceased from './icons/IconDeceased'
 
-const statsArray = [
-   {
-      'title': 'confirmed',
-      'icon': <IconConfirmed />
-   },
-   {
-      'title': 'active',
-      'icon': <IconActive />
-   },
-   {
-      'title': 'recovered',
-      'icon': <IconRecovered />
-   },
-   {
-      'title': 'deaths',
-      'icon': <IconDeceased />
-   }
-]
+import { SUMMARY_STATS } from './../data/constants'
+import { capitalize, formatNumber } from './../utils/commonFunctions'
 
 const Summary = ({ summary }) => {
    return (
@@ -31,8 +11,14 @@ const Summary = ({ summary }) => {
          </div>
          <div className="summary-inner">
             {
-               statsArray.map((stat, index) => {
-                  return <SummaryBox key={index} summary={summary} stat={stat} />
+               SUMMARY_STATS.map((stat, index) => {
+                  return (
+                     <SummaryBox
+                        key={index}
+                        summary={summary}
+                        stat={stat}
+                     />
+                  )
                })
             }
          </div>
@@ -43,13 +29,14 @@ const Summary = ({ summary }) => {
 const SummaryBox = ({ summary, stat }) => {
    return (
       <div className="summary-box">
-         <h4>{stat.title}</h4>
-         {stat.icon}
-
-         <p>{summary[stat.title]}</p>
-         {
-            summary[`delta${stat.title}`] && <span>+{summary[`delta${stat.title}`]}</span>
-         }
+         <h4 className="title">{capitalize(stat.title)}</h4>
+         <div className="new-cases">
+            {
+               summary[`delta${stat.title}`] && '+ ' + formatNumber(summary[`delta${stat.title}`])
+            }
+         </div>
+         <p className="total-cases">{formatNumber(summary[stat.title])}</p>
+         <i className="icon">{stat.icon}</i>
       </div>
    )
 }
