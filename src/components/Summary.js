@@ -26,11 +26,16 @@ const statsArray = [
 const Summary = ({ summary }) => {
    return (
       <section className="summary">
-         {
-            statsArray.map((stat, index) => {
-               return <SummaryBox key={index} summary={summary} stat={stat} />
-            })
-         }
+         <div className="updated-at">
+            {summary.lastupdatedtime}
+         </div>
+         <div className="summary-inner">
+            {
+               statsArray.map((stat, index) => {
+                  return <SummaryBox key={index} summary={summary} stat={stat} />
+               })
+            }
+         </div>
       </section>
    )
 }
@@ -38,12 +43,13 @@ const Summary = ({ summary }) => {
 const SummaryBox = ({ summary, stat }) => {
    return (
       <div className="summary-box">
-         <h4>{stat.title === 'deaths' ? 'deceased' : stat.title}</h4>
+         <h4>{stat.title}</h4>
+         {stat.icon}
+
+         <p>{summary[stat.title]}</p>
          {
             summary[`delta${stat.title}`] && <span>+{summary[`delta${stat.title}`]}</span>
          }
-         <p>{summary[stat.title]}</p>
-         {stat.icon}
       </div>
    )
 }

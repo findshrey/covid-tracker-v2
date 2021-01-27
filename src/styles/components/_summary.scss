@@ -1,7 +1,5 @@
 // Summary
-.summary {
-   // display: flex;
-   // justify-content: space-between;
+.summary-inner {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    grid-template-rows: 20rem;

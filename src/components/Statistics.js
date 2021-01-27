@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Summary from './Summary'
+import Table from './Table'
 
 const Statistics = () => {
    const [covidStats, setCovidStats] = useState({})
@@ -23,6 +24,7 @@ const Statistics = () => {
                <Summary
                   summary={Object.keys(covidStats).length > 0 && covidStats.statewise[0]}
                />
+               <Table tableStats={Object.keys(covidStats).length > 0 && covidStats.statewise} />
             </div>
             <div className="stats-right">
 
