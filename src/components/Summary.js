@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { SUMMARY_STATS } from './../data/constants'
-import { capitalize, formatNumber } from './../utils/commonFunctions'
+import { capitalize, formatNumber, getDate } from './../utils/commonFunctions'
 
 const Summary = ({ summary }) => {
    return (
       <section className="summary">
          <div className="updated-at">
-            {summary.lastupdatedtime}
+            {summary.lastupdatedtime && getDate(summary.lastupdatedtime)} IST
          </div>
          <div className="summary-inner">
             {

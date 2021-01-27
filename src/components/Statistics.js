@@ -24,7 +24,9 @@ const Statistics = () => {
                <Summary
                   summary={Object.keys(covidStats).length > 0 && covidStats.statewise[0]}
                />
-               <Table tableStats={Object.keys(covidStats).length > 0 && covidStats.statewise} />
+               <Table
+                  tableStats={Object.keys(covidStats).length > 0 && covidStats.statewise}
+               />
             </div>
             <div className="stats-right">
 

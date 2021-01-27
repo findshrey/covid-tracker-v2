@@ -27,6 +27,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.8.3",
+    "date-fns": "^2.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^4.1.0",
