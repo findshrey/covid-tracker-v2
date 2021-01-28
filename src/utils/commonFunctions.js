@@ -23,7 +23,7 @@ const getDate = (str) => {
 
    const newDate = new Date(year, month - 1, day, hour, min, sec)
 
-   return format(newDate, "dd MMM, KK:mm aaa")
+   return format(newDate, "dd MMM, hh:mm aaa")
 }
 
 export { capitalize, formatNumber, getDate }

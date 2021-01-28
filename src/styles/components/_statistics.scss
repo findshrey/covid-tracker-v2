@@ -1,9 +1,9 @@
 .statistics {
    padding: $section-padding;
-   
-   .container {
-      // display: flex;
-   }
+}
+
+.statistics-inner {
+   display: flex;
 }
 
 .stats-left {

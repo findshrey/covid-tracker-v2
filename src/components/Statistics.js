@@ -16,7 +16,7 @@ const Statistics = () => {
       getData()
    }, [])
 
-   console.log(covidStats);
+   // console.log(covidStats);
 
    return (
       <section className="statistics">
@@ -24,13 +24,15 @@ const Statistics = () => {
             <Summary
                summary={Object.keys(covidStats).length > 0 && covidStats.statewise[0]}
             />
-            <div className="stats-left">
-               <Table
-                  tableStats={Object.keys(covidStats).length > 0 && covidStats.statewise}
-               />
-            </div>
-            <div className="stats-right">
+            <div className="statistics-inner">
+               <div className="stats-left">
+                  <Table
+                     tableStats={Object.keys(covidStats).length > 0 && covidStats.statewise}
+                  />
+               </div>
+               <div className="stats-right">
 
+               </div>
             </div>
          </div>
       </section>

@@ -19,6 +19,7 @@
 .summary-inner {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
+   gap: 3px;
    // grid-template-rows: 20rem;
    // justify-items: center;
 }
@@ -30,7 +31,6 @@
    justify-items: center;
    align-items: center;
    padding: 1rem 0.5rem;
-   margin: 0 2px;
    
    &:nth-child(1) {
       color: $c-red;
