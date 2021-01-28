@@ -6,13 +6,13 @@ import Footer from './Footer'
 
 const CovidApp = () => {
    return (
-      <div className="covid-app">
+      <>
          <Header />
          <main>
             <Statistics />
          </main>
          <Footer />
-      </div>
+      </>
    )
 }
 

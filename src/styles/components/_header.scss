@@ -1,28 +1,24 @@
-.main-head {
+.site-head {
    background: darken($c-white, 3%);
-   position: fixed;
-   height: 100%;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   padding: 2rem;
-   text-align: center;
-}
+   padding: 1rem 0;
 
-.logo {
-   font-size: $font-l;
-   writing-mode: vertical-rl;
-   text-orientation: upright;
-   // letter-spacing: 2px;
-
-   span {
-      color: $c-blue;
-      font-size: $font-l;
+   .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
    }
 }
 
-.theme-icon svg {
-   font-size: 2.5rem;
-   // fill: $c-blue;
-   stroke: $c-blue;
+.logo span {
+   color: $c-blue;
+   font-size: $h1;
+}
+
+.theme-icon {
+   display: flex;
+   align-items: center;
+   
+   svg {
+      fill: $c-blue;
+   }
 }
