@@ -18,9 +18,9 @@ const sort = (stats, sortBy) => {
    }
 }
 
-const Table = ({ stateStats = [] }) => {
+const Table = ({ stateStats = [], sortBy }) => {
    let tableStats = stateStats.filter((el) => el.state !== 'Total' && el.state !== 'State Unassigned')
-   tableStats = sort(tableStats, 'confirmed')
+   tableStats = sort(tableStats, sortBy)
 
    return (
       <section className="table">

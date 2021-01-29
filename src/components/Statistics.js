@@ -3,10 +3,12 @@ import axios from 'axios'
 
 import Summary from './Summary'
 import Table from './Table'
+import TableHead from './TableHead'
 import IconShield from './icons/IconShield'
 
 const Statistics = () => {
    const [covidStats, setCovidStats] = useState({})
+   const [tableSort, setTableSort] = useState('confirmed')
 
    useEffect(() => {
       const getData = async () => {
@@ -16,6 +18,10 @@ const Statistics = () => {
       }
       getData()
    }, [])
+
+   const handleTableSort = (sortBy) => {
+      setTableSort(sortBy)
+   }
 
    // if (covidStats.tested) {
    //    console.log(covidStats.tested[covidStats.tested.length - 1].totaldosesadministered);
@@ -39,8 +45,10 @@ const Statistics = () => {
                         </div>
                      </div>
                   }
+                  <TableHead handleTableSort={handleTableSort} />
                   <Table
                      stateStats={covidStats.statewise}
+                     sortBy={tableSort}
                   />
                </div>
                <div className="stats-right">

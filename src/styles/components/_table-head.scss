@@ -1,0 +1,37 @@
+.table-head {
+   margin-bottom: 4px;
+   position: relative;
+
+   button {
+      border: none;
+      border-radius: 5px;
+      background: darken($c-white, 3%);
+      padding: 0.8rem;
+      margin-right: 4px;
+      display: inline-flex;
+
+      &:focus {
+         outline: none;
+      }
+
+      &:nth-child(4) {
+         position: absolute;
+         right: 0;
+         margin: 0;
+      }
+
+      &.active {
+         background: lighten($c-red, 40%);
+
+         svg {
+            fill: $c-red;
+         }
+      }
+   }
+
+   svg {
+      fill: $c-gray;
+      // height: 18px;
+      width: 18px;
+   }
+}
