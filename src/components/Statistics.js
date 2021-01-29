@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Summary from './Summary'
 import Table from './Table'
+import IconShield from './icons/IconShield'
 
 const Statistics = () => {
    const [covidStats, setCovidStats] = useState({})
@@ -16,7 +17,9 @@ const Statistics = () => {
       getData()
    }, [])
 
-   // console.log(covidStats);
+   // if (covidStats.tested) {
+   //    console.log(covidStats.tested[covidStats.tested.length - 1].totaldosesadministered);
+   // }
 
    return (
       <section className="statistics">
@@ -26,8 +29,18 @@ const Statistics = () => {
             />
             <div className="statistics-inner">
                <div className="stats-left">
+                  {
+                     covidStats.tested &&
+                     <div className="vaccine">
+                        <div className="vaccine-inner">
+                           <IconShield />
+                           <span>{covidStats.tested[covidStats.tested.length - 1].totaldosesadministered}</span>
+                           vaccine doses administered
+                        </div>
+                     </div>
+                  }
                   <Table
-                     tableStats={Object.keys(covidStats).length > 0 && covidStats.statewise}
+                     stateStats={covidStats.statewise}
                   />
                </div>
                <div className="stats-right">

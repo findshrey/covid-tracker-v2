@@ -7,6 +7,12 @@ import IconClock from './icons/IconClock'
 const Summary = ({ summary }) => {
    return (
       <section className="summary">
+         <div className="update-time">
+            <IconClock />
+            <h4 className="time">
+               {summary.lastupdatedtime && `Last Updated: ${getDate(summary.lastupdatedtime)}`}
+            </h4>
+         </div>
          <div className="summary-inner">
             {
                SUMMARY_STATS.map((stat, index) => {
@@ -19,12 +25,6 @@ const Summary = ({ summary }) => {
                   )
                })
             }
-         </div>
-         <div className="update-time">
-            <IconClock />
-            <h4 className="time">
-               {summary.lastupdatedtime && `Last Updated: ${getDate(summary.lastupdatedtime)}`}
-            </h4>
          </div>
       </section>
    )

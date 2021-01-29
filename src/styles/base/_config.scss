@@ -1,5 +1,5 @@
 // Fonts
-$font-primary: 'Open Sans', sans-serif; // 300,400,600,700,800
+$font-primary: 'Montserrat', sans-serif; // 300,400,500,600,700
 
 // Header(Tag) sizes
 $h1: 2.2rem; // clamp(4.5rem, calc(3rem + 4vw), 9rem)
@@ -19,8 +19,5 @@ $c-blue: #4c75f2;
 $c-gray: #6c757d;
 $c-white: #fff;
 
-// $c-red: #e41920;
-// $c-golden: #af9972;
-
 // Section padding
-$section-padding: clamp(6rem, calc(5rem + 2vw), 8rem) 0;
+$section-padding: clamp(5rem, calc(4rem + 1vw), 7rem) 0;

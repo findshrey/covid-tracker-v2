@@ -1,9 +1,12 @@
 // Summary
+.summary {
+   padding: $section-padding;
+}
 .update-time {
    display: flex;
    align-items: center;
    justify-content: center;
-   margin: 3rem 0;
+   margin-bottom: 4rem;
 
    svg {
       fill: $c-gray;
@@ -87,6 +90,12 @@
 
    .total-cases {
       font-size: $font-l;
-      font-weight: 800;
+      font-weight: 700;
+   }
+}
+
+@media (max-width: 800px) {
+   .summary-inner {
+      grid-template-columns: repeat(2, 1fr);
    }
 }
