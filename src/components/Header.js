@@ -6,7 +6,7 @@ const Header = () => {
       <header className="site-head">
          <div className="container">
             <h1 className="logo">
-               COVID<span>INDIA</span>
+               COVID19<span>INDIA</span>
             </h1>
             <button className="theme-icon">
                <IconNight />
