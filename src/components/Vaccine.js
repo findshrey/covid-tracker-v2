@@ -1,16 +1,17 @@
 import React from 'react'
 
+import { formatNumber } from './../utils/commonFunctions'
 import IconShield from './icons/IconShield'
 
-const Vaccine = ({ covidStats }) => {
+const Vaccine = ({ vaccine }) => {
    return (
       <div className="vaccine">
          <div className="vaccine-inner">
             <IconShield />
             <span>
-               {covidStats.tested[covidStats.tested.length - 1].totaldosesadministered}
+               {formatNumber(vaccine[vaccine.length - 1].totaldosesadministered) + ' '}
+               vaccine doses administered
             </span>
-            <span>vaccine doses administered</span>
          </div>
       </div>
    )

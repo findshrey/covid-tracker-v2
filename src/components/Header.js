@@ -8,9 +8,9 @@ const Header = () => {
             <h1 className="logo">
                COVID<span>INDIA</span>
             </h1>
-            <div className="theme-icon">
+            <button className="theme-icon">
                <IconNight />
-            </div>
+            </button>
          </div>
       </header>
    )

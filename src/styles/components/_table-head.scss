@@ -1,14 +1,14 @@
 .table-head {
-   margin-bottom: 0.4rem;
    position: relative;
+   margin-bottom: 0.4rem;
 
    .table-btn {
+      background: darken($c-white, 3%);
       border: none;
       border-radius: 5px;
-      background: darken($c-white, 3%);
+      display: inline-flex;
       padding: 0.8rem;
       margin-right: 0.4rem;
-      display: inline-flex;
 
       &:focus {
          outline: none;

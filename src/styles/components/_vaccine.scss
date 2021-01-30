@@ -11,15 +11,10 @@
    display: inline-flex;
    align-items: center;
    justify-content: center;
-   padding: 1rem;
+   padding: 0.8rem 0.6rem;
 
    span {
-      font-size: $font-s;
-      font-weight: 600;
-
-      &:nth-child(2) {
-         margin: 0 0.5rem;
-      }
+      margin-left: 0.5rem;
    }
 
    svg {

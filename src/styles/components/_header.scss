@@ -10,15 +10,21 @@
 }
 
 .logo span {
-   color: $c-blue;
+   color: $c-navy;
    font-size: $h1;
 }
 
 .theme-icon {
+   background: transparent;
+   border: none;
    display: flex;
    align-items: center;
+
+   &:focus {
+      outline: none;
+   }
    
    svg {
-      fill: $c-blue;
+      fill: $c-navy;
    }
 }

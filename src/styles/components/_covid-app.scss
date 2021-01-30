@@ -2,13 +2,27 @@
    display: flex;
    padding: $padding-top;
 
-   & > * {
+   .stats-left {
       flex: 1;
+      margin-right: 3rem;
+   }
+
+   .stats-right {
+      flex: 1;
+      margin-left: 3rem;
    }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
    .statistics {
       flex-direction: column;
+
+      .stats-left {
+         margin-right: 0;
+      }
+   
+      .stats-right {
+         margin: 5rem 0 0 0;
+      }
    }
 }

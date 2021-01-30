@@ -16,13 +16,11 @@
 }
 
 .cell {
+   border-radius: 3px;
    display: flex;
    align-items: center;
    justify-content: center;
    text-align: center;
-   border-radius: 3px;
-   font-size: $font-s;
-   font-weight: 600;
    padding: 1rem 0.5rem;
    margin-bottom: 0.4rem;
 

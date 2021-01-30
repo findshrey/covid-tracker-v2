@@ -1,0 +1,35 @@
+.tested {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.tested-left {
+   margin-right: 1rem;
+   
+   h2 {
+      background: lighten($c-navy, 33%);
+      border-radius: 5px;
+      color: $c-navy;
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+   }
+
+   p {
+      margin-top: 0.6rem;
+   }
+}
+
+.tested-right {
+   text-align: end;
+   margin-left: 1rem;
+
+   h4, p {
+      color: lighten($c-purple, 15%);
+   }
+
+   .sample-tested {
+      color: $c-purple;
+      font-size: 2.2rem;
+   }
+}

@@ -3,21 +3,24 @@ $font-primary: 'Montserrat', sans-serif; // 300,400,500,600,700
 
 // Header(Tag) sizes
 $h1: 2.2rem; // clamp(4.5rem, calc(3rem + 4vw), 9rem)
-// $h2: clamp(2.5rem, calc(2rem + 1vw), 4rem);
+$h2: 2.5rem; // clamp(2.5rem, calc(2rem + 1vw), 4rem)
 // $h3: clamp(1.4rem, calc(1rem + 0.75vw), 2rem);
 
 // Text Sizes
-$font-l: 2.6rem; // clamp(1.8rem, calc(1.5rem + 0.75vw), 2.4rem)
-$font-m: 1.5rem; // clamp(1.5rem, calc(1rem + 0.6vw), 1.8rem)
+$font-l: clamp(2.2rem, calc(1.5rem + 1vw), 3rem);
+$font-m: 1.5rem;
 $font-s: 1.3rem;
 
 // Colors
 $c-black: #252525;
+$c-gray: #6c757d;
+$c-purple: #3F3AAE;
 $c-red: #e23028;
 $c-green: #28a745;
-$c-blue: #1d50ef;
-$c-gray: #6c757d;
+$c-navy: #4c75f2;
+$c-blue: #007bff;
+$c-yellow: #FFC722;
 $c-white: #fff;
 
-// Section padding
+// Paddings
 $padding-top: clamp(5rem, calc(4rem + 1vw), 7rem) 0 0 0;

@@ -6,6 +6,7 @@ import Summary from './Summary'
 import Vaccine from './Vaccine'
 import TableHead from './TableHead'
 import Table from './Table'
+import Tested from './Tested'
 import Footer from './Footer'
 
 
@@ -46,6 +47,8 @@ const CovidApp = () => {
       setSortedStats(statesOnly)
    }
 
+   // console.log(covidStats);
+
    return (
       <>
          <Header />
@@ -54,12 +57,12 @@ const CovidApp = () => {
                <Summary summary={Object.keys(covidStats).length > 0 && covidStats.statewise[0]} />
                <div className="statistics">
                   <div className="stats-left">
-                     {covidStats.tested && <Vaccine covidStats={covidStats} />}
+                     {covidStats.tested && <Vaccine vaccine={covidStats.tested} />}
                      <TableHead handleTableSort={handleTableSort} />
                      <Table sortedStats={sortedStats} />
                   </div>
                   <div className="stats-right">
-
+                     {covidStats.tested && <Tested tested={covidStats.tested} />}
                   </div>
                </div>
             </div>

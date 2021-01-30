@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { SUMMARY_STATS } from './../data/constants'
-import { capitalize, formatNumber, getDate } from './../utils/commonFunctions'
+import { capitalize, formatNumber, getDateTime } from './../utils/commonFunctions'
 import IconClock from './icons/IconClock'
 
 const Summary = ({ summary }) => {
@@ -10,7 +10,7 @@ const Summary = ({ summary }) => {
          <div className="update-time">
             <IconClock />
             <h4 className="time">
-               {summary.lastupdatedtime && `Last Updated: ${getDate(summary.lastupdatedtime)}`}
+               {summary.lastupdatedtime && `Last Updated on ${getDateTime(summary.lastupdatedtime)}`}
             </h4>
          </div>
          <div className="summary-inner">
@@ -39,7 +39,7 @@ const SummaryBox = ({ summary, stat }) => {
                summary[`delta${stat.title}`] && '+' + formatNumber(summary[`delta${stat.title}`])
             }
          </div>
-         <p className="total-cases">{formatNumber(summary[stat.title])}</p>
+         <div className="total-cases">{formatNumber(summary[stat.title])}</div>
          <i className="icon">{stat.icon}</i>
       </div>
    )
