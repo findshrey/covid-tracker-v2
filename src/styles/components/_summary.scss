@@ -53,7 +53,7 @@ $box-mapping: (1: $c-red, 2: $c-blue, 3: $c-green, 4: $c-gray);
    @each $child, $color in $box-mapping {
       .summary-box:nth-child(#{$child}) {
          color: $color;
-         background: lighten($color, 33%);
+         background: lighten($color, 40%);
          border-radius: 5px;
 
          svg {
