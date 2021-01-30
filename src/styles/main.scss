@@ -4,8 +4,9 @@
 @import './base/global';
 
 // Components
+@import './components/covid-app';
 @import './components/header';
-@import './components/statistics';
 @import './components/summary';
+@import './components/vaccine';
 @import './components/table-head';
 @import './components/table';

@@ -1,0 +1,14 @@
+.statistics {
+   display: flex;
+   padding: $padding-top;
+
+   & > * {
+      flex: 1;
+   }
+}
+
+@media (max-width: 800px) {
+   .statistics {
+      flex-direction: column;
+   }
+}

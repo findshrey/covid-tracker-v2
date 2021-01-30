@@ -1,13 +1,13 @@
 .table-head {
-   margin-bottom: 4px;
+   margin-bottom: 0.4rem;
    position: relative;
 
-   button {
+   .table-btn {
       border: none;
       border-radius: 5px;
       background: darken($c-white, 3%);
       padding: 0.8rem;
-      margin-right: 4px;
+      margin-right: 0.4rem;
       display: inline-flex;
 
       &:focus {
@@ -31,7 +31,7 @@
 
    svg {
       fill: $c-gray;
-      // height: 18px;
+      height: 18px;
       width: 18px;
    }
 }

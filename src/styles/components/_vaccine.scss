@@ -1,0 +1,30 @@
+.vaccine {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 3rem;
+}
+
+.vaccine-inner {
+   background: lighten($c-green, 50%);
+   border-radius: 5px;
+   color: $c-green;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   padding: 0.8rem;
+
+   span {
+      font-size: $font-s;
+      font-weight: 600;
+
+      &:nth-child(2) {
+         margin: 0 0.5rem;
+      }
+   }
+
+   svg {
+      fill: $c-green;
+      height: 18px;
+      width: 18px;
+   }
+}
