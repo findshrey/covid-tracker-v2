@@ -1,24 +1,34 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const SpreadTrends = () => {
-   const [spreadTrends, setSpreadTrends] = useState({})
+import SpreadHead from './SpreadHead'
+import SpreadCharts from './SpreadCharts'
 
+const SpreadTrends = () => {
+   const [spreadData, setSpreadData] = useState({})
+
+   // Fetch daily state data
    useEffect(() => {
       const getData = async () => {
          const response = await axios.get('https://api.covid19india.org/v4/timeseries.json')
 
-         setSpreadTrends(response.data)
+         setSpreadData(response.data)
       }
 
       getData()
    }, [])
 
-   console.log(spreadTrends);
+   // Change graph statewise
+   const handleCharts = (stateCode) => {
+      console.log(stateCode);
+   }
+
+   // console.log(spreadData);
 
    return (
       <section className="spread-trends">
-         hello
+         <SpreadHead handleCharts={handleCharts} />
+         <SpreadCharts />
       </section>
    )
 }

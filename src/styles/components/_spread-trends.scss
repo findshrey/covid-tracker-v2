@@ -1,0 +1,41 @@
+// SpreadHead Component
+.spread-head {
+   margin-top: 4rem;
+
+   h2 {
+      color: darken($c-gray, 5%);
+      text-align: center;
+      margin-bottom: 3rem;
+   }
+
+   .state-list {
+      appearance: none;
+      background: url('./../images/chevron.svg') no-repeat calc(100% - 0.8rem) center darken($c-white, 3%);
+      border: 2px solid darken($c-white, 13%);
+      border-radius: 4px;
+      color: $c-gray;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      max-width: 100%;
+      padding: 0.8rem 2.5rem 0.8rem 0.8rem;
+
+      &:focus {
+         outline: none;
+      }
+
+      option {
+         font-weight: inherit;
+      }
+   }
+}
+
+// SpreadCharts Component
+.spread-charts {
+   // position: relative;
+   canvas {
+      width: 100% !important;
+   }
+}
