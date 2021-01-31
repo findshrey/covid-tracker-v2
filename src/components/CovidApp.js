@@ -7,7 +7,9 @@ import Vaccine from './Vaccine'
 import TableHead from './TableHead'
 import Table from './Table'
 import Tested from './Tested'
+import SpreadTrends from './SpreadTrends'
 import Footer from './Footer'
+import Spinner from './Spinner'
 
 
 const CovidApp = () => {
@@ -47,24 +49,29 @@ const CovidApp = () => {
       setSortedStats(statesOnly)
    }
 
-   // console.log(covidStats);
-
    return (
       <>
          <Header />
-         <main>
+         <main className="content-wrapper">
             <div className="container">
-               <Summary summary={Object.keys(covidStats).length > 0 && covidStats.statewise[0]} />
-               <div className="statistics">
-                  <div className="stats-left">
-                     {covidStats.tested && <Vaccine vaccine={covidStats.tested} />}
-                     <TableHead handleTableSort={handleTableSort} />
-                     <Table sortedStats={sortedStats} />
-                  </div>
-                  <div className="stats-right">
-                     {covidStats.tested && <Tested tested={covidStats.tested} />}
-                  </div>
-               </div>
+               {
+                  Object.keys(covidStats).length > 0 ?
+                     <>
+                        <Summary summary={covidStats.statewise[0]} />
+                        <div className="statistics">
+                           <div className="stats-left">
+                              <Vaccine vaccine={covidStats.tested} />
+                              <TableHead handleTableSort={handleTableSort} />
+                              <Table sortedStats={sortedStats} />
+                           </div>
+                           <div className="stats-right">
+                              <Tested tested={covidStats.tested} />
+                              <SpreadTrends />
+                           </div>
+                        </div>
+                     </> :
+                     <Spinner />
+               }
             </div>
          </main>
          <Footer />

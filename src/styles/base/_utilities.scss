@@ -5,6 +5,28 @@
    margin: 0 auto;
 }
 
+.spinner {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   height: 60px;
+   width: 60px;
+   border: 12px solid darken($c-white, 3%);
+   border-top: 12px solid $c-navy;
+   border-radius: 50%;
+   animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+   0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+   }
+
+   100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+   }
+}
+
 @media (max-width: 1100px) {
    .container {
       max-width: 600px;

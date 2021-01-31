@@ -10,7 +10,7 @@ const Summary = ({ summary }) => {
          <div className="update-time">
             <IconClock />
             <h4 className="time">
-               {summary.lastupdatedtime && `Last Updated on ${getDateTime(summary.lastupdatedtime)}`}
+               {`Last Updated on ${getDateTime(summary.lastupdatedtime)}`}
             </h4>
          </div>
          <div className="summary-inner">
