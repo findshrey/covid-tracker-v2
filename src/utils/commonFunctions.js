@@ -33,4 +33,10 @@ const getDate = (str) => {
    return format(newDate, "dd MMMM")
 }
 
-export { capitalize, formatNumber, getDateTime, getDate }
+const checkNum = (num) => {
+   // if (isNaN(num)) {
+   //    return 0
+   // }
+}
+
+export { capitalize, formatNumber, getDateTime, getDate, checkNum }

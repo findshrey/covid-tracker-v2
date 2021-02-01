@@ -19,10 +19,6 @@
    border: none;
    display: flex;
    align-items: center;
-
-   &:focus {
-      outline: none;
-   }
    
    svg {
       fill: $c-navy;

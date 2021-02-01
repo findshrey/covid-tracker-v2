@@ -71,10 +71,10 @@ const STATE_NAMES = {
    WB: 'West Bengal',
 }
 
-const SPREAD_RANGE = {
+const SPREAD_RANGES = {
    31: '1 Month',
    91: '3 Months',
    181: '6 Months'
 }
 
-export { SUMMARY_STATS, TABLE_HEADINGS, STATE_NAMES, SPREAD_RANGE }
+export { SUMMARY_STATS, TABLE_HEADINGS, STATE_NAMES, SPREAD_RANGES }

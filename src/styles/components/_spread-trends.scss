@@ -7,28 +7,53 @@
       text-align: center;
       margin-bottom: 3rem;
    }
+}
 
-   .state-list {
-      appearance: none;
-      background: url('./../images/chevron.svg') no-repeat calc(100% - 0.8rem) center darken($c-white, 3%);
-      border: 2px solid darken($c-white, 13%);
-      border-radius: 3px;
-      color: $c-gray;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: inherit;
+.spread-range {
+   border-radius: 5px;
+   display: inline-block;
+   margin-bottom: 0.5rem;
+   overflow: hidden;
+   vertical-align:top;
+
+   .range-btn {
+      border: none;
+      color: $c-mustard;
+      background: lighten($c-mustard, 40%);
+      padding: 1rem;
+      border-right: 2px solid lighten($c-mustard, 30%);
+   
+      &:last-child {
+         border-right: none;
+      }
+   
+      &.active {
+         background: lighten($c-mustard, 30%);
+      }
+   }
+}
+
+.state-list {
+   appearance: none;
+   background: url('./../images/chevron.svg') no-repeat calc(100% - 0.8rem) center darken($c-white, 3%);
+   border: 2px solid darken($c-white, 13%);
+   border-radius: 3px;
+   color: $c-gray;
+   cursor: pointer;
+   display: block;
+   font-family: inherit;
+   font-size: inherit;
+   font-weight: inherit;
+   line-height: inherit;
+   max-width: 100%;
+   padding: 0.8rem 2.5rem 0.8rem 0.8rem;
+
+   &:focus {
+      outline: none;
+   }
+
+   option {
       font-weight: inherit;
-      line-height: inherit;
-      max-width: 100%;
-      padding: 0.8rem 2.5rem 0.8rem 0.8rem;
-
-      &:focus {
-         outline: none;
-      }
-
-      option {
-         font-weight: inherit;
-      }
    }
 }
 

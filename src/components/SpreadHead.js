@@ -1,40 +1,43 @@
 import React, { useState } from 'react'
 
-import { STATE_NAMES, SPREAD_RANGE } from './../data/constants'
+import { SPREAD_RANGES, STATE_NAMES } from './../data/constants'
 
 const SpreadHead = ({ handleCharts }) => {
-   const [range, setRange] = useState(31)
-   const [stateCode, setStateCode] = useState('DL')
+   const [activeBtn, setActiveBtn] = useState(0)
+   const [spreadRange, setSpreadRange] = useState(31)
+   const [selectedState, setSelectedState] = useState('DL')
 
-   const stateCodes = Object.keys(STATE_NAMES)
-   const rangeArray = Object.keys(SPREAD_RANGE)
+   const rangeKeys = Object.keys(SPREAD_RANGES)
+   const stateNameKeys = Object.keys(STATE_NAMES)
 
    return (
       <header className="spread-head">
          <h2>Spread Trends</h2>
          <div className="spread-range">
             {
-               rangeArray.map((range, index) => {
+               rangeKeys.map((range, index) => {
                   return <button
                      key={index}
-                     onClick={() => { setRange(parseInt(range)); handleCharts(stateCode, range) }}
+                     className={index === activeBtn ? 'range-btn active' : 'range-btn'}
+                     onClick={() => { setActiveBtn(index); setSpreadRange(parseInt(range)); handleCharts(selectedState, range) }}
                   >
-                     {SPREAD_RANGE[range]}
+                     {SPREAD_RANGES[range]}
                   </button>
                })
             }
          </div>
          <select
             className="state-list"
-            onChange={(e) => { setStateCode(e.target.value); handleCharts(e.target.value, range); }}
+            value={selectedState}
+            onChange={(e) => { setSelectedState(e.target.value); handleCharts(e.target.value, spreadRange) }}
          >
             {
-               stateCodes.map((code, index) => {
+               stateNameKeys.map((stateCode, index) => {
                   return <option
                      key={index}
-                     value={code}
+                     value={stateCode}
                   >
-                     {STATE_NAMES[code]}
+                     {STATE_NAMES[stateCode]}
                   </option>
                })
             }

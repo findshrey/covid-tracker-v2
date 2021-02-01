@@ -1,13 +1,13 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
 
-const SpreadCharts = ({ date, confirmed }) => {
+const SpreadCharts = ({ date, confirmed, recovered, deceased }) => {
    const data = {
       labels: date,
       datasets: [
          {
             label: '# of Votes',
-            data: confirmed,
+            data: deceased,
             backgroundColor: [
                'rgba(255, 99, 132, 0.2)',
                'rgba(54, 162, 235, 0.2)',

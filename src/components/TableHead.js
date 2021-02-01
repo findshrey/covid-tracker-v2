@@ -3,12 +3,7 @@ import React, { useState } from 'react'
 import { SUMMARY_STATS } from './../data/constants'
 
 const TableHead = ({ handleTableSort }) => {
-   const [active, setActive] = useState(0)
-
-   // Highlight active button
-   const handleActive = (index) => {
-      setActive(index)
-   }
+   const [activeBtn, setActiveBtn] = useState(0)
 
    return (
       <div className="table-head">
@@ -17,8 +12,8 @@ const TableHead = ({ handleTableSort }) => {
                return (
                   <button
                      key={index}
-                     onClick={() => { handleActive(index); handleTableSort(undefined, stat.title) }}
-                     className={active === index ? 'active table-btn' : 'table-btn'}
+                     onClick={() => { setActiveBtn(index); handleTableSort(undefined, stat.title) }}
+                     className={index === activeBtn ? 'table-btn active' : 'table-btn'}
                      title={`Sort by ${stat.title}`}
                   >
                      {stat.icon}
