@@ -40,22 +40,22 @@ const STATE_NAMES = {
    BR: 'Bihar',
    CH: 'Chandigarh',
    CT: 'Chhattisgarh',
-   DL: 'Delhi',
    DN: 'Dadra and Nagar Haveli and Daman and Diu',
+   DL: 'Delhi',
    GA: 'Goa',
    GJ: 'Gujarat',
    HR: 'Haryana',
    HP: 'Himachal Pradesh',
-   JH: 'Jharkhand',
    JK: 'Jammu and Kashmir',
+   JH: 'Jharkhand',
    KA: 'Karnataka',
    KL: 'Kerala',
    LA: 'Ladakh',
    LD: 'Lakshadweep',
-   MH: 'Maharashtra',
-   ML: 'Meghalaya',
-   MN: 'Manipur',
    MP: 'Madhya Pradesh',
+   MH: 'Maharashtra',
+   MN: 'Manipur',
+   ML: 'Meghalaya',
    MZ: 'Mizoram',
    NL: 'Nagaland',
    OR: 'Odisha',
@@ -63,12 +63,18 @@ const STATE_NAMES = {
    PY: 'Puducherry',
    RJ: 'Rajasthan',
    SK: 'Sikkim',
-   TG: 'Telangana',
    TN: 'Tamil Nadu',
+   TG: 'Telangana',
    TR: 'Tripura',
    UP: 'Uttar Pradesh',
    UT: 'Uttarakhand',
    WB: 'West Bengal',
 }
 
-export { SUMMARY_STATS, TABLE_HEADINGS, STATE_NAMES }
+const SPREAD_RANGE = {
+   31: '1 Month',
+   91: '3 Months',
+   181: '6 Months'
+}
+
+export { SUMMARY_STATS, TABLE_HEADINGS, STATE_NAMES, SPREAD_RANGE }

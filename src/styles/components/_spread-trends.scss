@@ -12,7 +12,7 @@
       appearance: none;
       background: url('./../images/chevron.svg') no-repeat calc(100% - 0.8rem) center darken($c-white, 3%);
       border: 2px solid darken($c-white, 13%);
-      border-radius: 4px;
+      border-radius: 3px;
       color: $c-gray;
       cursor: pointer;
       font-family: inherit;
@@ -34,7 +34,10 @@
 
 // SpreadCharts Component
 .spread-charts {
-   // position: relative;
+   margin-top: 2rem;
+}
+
+.chart-wrapper {
    canvas {
       width: 100% !important;
    }

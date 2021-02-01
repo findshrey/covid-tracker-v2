@@ -5,7 +5,7 @@
 }
 
 .tested-left {
-   margin-right: 1.5rem;
+   padding-right: 3rem;
    
    h2 {
       background: lighten($c-navy, 33%);
@@ -22,7 +22,6 @@
 
 .tested-right {
    text-align: end;
-   margin-left: 1.5rem;
 
    h4, p {
       color: lighten($c-purple, 15%);
