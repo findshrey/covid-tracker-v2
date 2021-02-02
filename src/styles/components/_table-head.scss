@@ -17,10 +17,10 @@
       }
 
       &.active {
-         background: lighten($c-blue, 40%);
+         background: lighten($c-green, 48%);
 
          svg {
-            fill: $c-blue;
+            fill: $c-green;
          }
       }
    }
