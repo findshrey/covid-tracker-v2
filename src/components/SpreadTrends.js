@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 // import { checkNum } from './../utils/commonFunctions'
-import { formatDate } from './../utils/commonFunctions'
+import { formatChartDate } from './../utils/commonFunctions'
 import SpreadHead from './SpreadHead'
 import SpreadCharts from './SpreadCharts'
 
@@ -49,7 +49,7 @@ const SpreadTrends = () => {
 
       // Format date
       stateDates.forEach((date, index) => {
-         stateDates[index] = formatDate(date)
+         stateDates[index] = formatChartDate(date)
       })
 
       setChartData([stateDates, confirmedData, recoveredData, deceasedData])

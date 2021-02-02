@@ -14,21 +14,23 @@ const formatNumber = (str) => {
    return num.toLocaleString('en-IN')
 }
 
-// Format Date
+// Format date (31/12/2020)
 const formatDate = (str) => {
-   const splitArg = str.includes('/') ? '/' : '-'
-
-   const [day, month, year] = str.split(splitArg)
+   const [day, month, year] = str.split('/')
    const newDate = new Date(year, month - 1, day)
 
-   if (splitArg === '/') {
-      return format(newDate, "dd MMMM")
-   } else {
-      return format(newDate, "MMM dd")
-   }
+   return format(newDate, "dd MMMM")
 }
 
-// Convert military date-time to 12h format
+// Format date (2020-12-31)
+const formatChartDate = (str) => {
+   const [year, month, day] = str.split('-')
+   const newDate = new Date(year, month - 1, day)
+
+   return format(newDate, "MMM dd")
+}
+
+// Format date and military time (31/12/2020 09:00:00)
 const getDateTime = (str) => {
    const [date, time] = str.split(' ')
 
@@ -45,4 +47,11 @@ const checkNum = (num) => {
    // }
 }
 
-export { capitalize, formatNumber, formatDate, getDateTime, checkNum }
+export {
+   capitalize,
+   formatNumber,
+   formatDate,
+   formatChartDate,
+   getDateTime,
+   checkNum
+}
