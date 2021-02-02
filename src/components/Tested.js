@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { getDateTime, getDate, formatNumber } from './../utils/commonFunctions'
+import { getDateTime, formatDate, formatNumber } from './../utils/commonFunctions'
 
 const Tested = ({ tested }) => {
    return (
@@ -12,7 +12,7 @@ const Tested = ({ tested }) => {
          <div className="tested-right">
             <h4>Tested</h4>
             <div className="sample-tested">{formatNumber(tested[tested.length - 1].totalsamplestested)}</div>
-            <p>As of {getDate(tested[tested.length - 1].testedasof)}</p>
+            <p>As of {formatDate(tested[tested.length - 1].testedasof)}</p>
          </div>
       </div>
    )

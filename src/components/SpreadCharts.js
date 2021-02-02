@@ -1,30 +1,21 @@
 import React from 'react'
-import { Bar } from 'react-chartjs-2'
+import { defaults, Bar } from 'react-chartjs-2'
 
-const SpreadCharts = ({ date, confirmed, recovered, deceased }) => {
-   const data = {
-      labels: date,
+defaults.global.defaultFontColor = 'rgba(226, 48, 40, 1)'
+defaults.global.defaultFontFamily = 'Montserrat'
+defaults.global.defaultFontSize = 10
+defaults.global.defaultFontStyle = 600
+
+const SpreadCharts = ({ dates, confirmed, recovered, deceased }) => {
+   const confirmedData = {
+      labels: dates,
       datasets: [
          {
-            label: '# of Votes',
-            data: deceased,
-            backgroundColor: [
-               'rgba(255, 99, 132, 0.2)',
-               'rgba(54, 162, 235, 0.2)',
-               'rgba(255, 206, 86, 0.2)',
-               'rgba(75, 192, 192, 0.2)',
-               'rgba(153, 102, 255, 0.2)',
-               'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-               'rgba(255, 99, 132, 1)',
-               'rgba(54, 162, 235, 1)',
-               'rgba(255, 206, 86, 1)',
-               'rgba(75, 192, 192, 1)',
-               'rgba(153, 102, 255, 1)',
-               'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1,
+            label: 'Confirmed',
+            data: confirmed,
+            backgroundColor: 'rgba(226, 48, 40, 0.5)',
+            borderColor: 'rgba(226, 48, 40, 1)',
+            borderWidth: 1
          },
       ],
    }
@@ -32,21 +23,74 @@ const SpreadCharts = ({ date, confirmed, recovered, deceased }) => {
    const options = {
       responsive: true,
       maintainAspectRatio: true,
+      legend: {
+         display: true,
+         align: 'start',
+         // fullWidth: true,
+         labels: {
+            boxWidth: 0,
+            fontSize: 18,
+            // padding: 5
+         }
+      },
       scales: {
-         yAxes: [
+         xAxes: [
             {
+               gridLines: {
+                  color: 'rgba(226, 48, 40, 1)',
+                  drawOnChartArea: false,
+                  tickMarkLength: 6,
+                  zeroLineColor: 'rgba(226, 48, 40, 1)',
+               },
                ticks: {
                   beginAtZero: true,
+                  padding: 5,
+                  maxTicksLimit: 5, // 10
+                  maxRotation: 0,
+                  minRotation: 0
                },
-            },
+               // categoryPercentage: 1.0,
+               // barPercentage: 1.0
+            }
          ],
+         yAxes: [
+            {
+               position: 'right',
+               gridLines: {
+                  color: 'rgba(226, 48, 40, 1)',
+                  drawOnChartArea: false,
+                  tickMarkLength: 6,
+                  zeroLineColor: 'rgba(226, 48, 40, 1)',
+               },
+               ticks: {
+                  beginAtZero: true,
+                  callback: function (label, index, labels) {
+                     return label / 1000 + 'k'
+                  },
+                  padding: 5,
+                  stepSize: 10000
+               }
+               // scaleLabel: {
+               //    display: true,
+               //    labelString: '1k = 1000'
+               // }
+            }
+         ]
       },
+      layout: {
+         padding: {
+            top: 5,
+            right: 10,
+            bottom: 10,
+            left: 25
+         }
+      }
    }
 
    return (
       <div className="spread-charts">
          <div className="chart-wrapper">
-            <Bar data={data} options={options} />
+            <Bar data={confirmedData} options={options} />
          </div>
       </div>
    )

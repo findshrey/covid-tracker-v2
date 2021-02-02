@@ -46,10 +46,10 @@
 }
 
 $box-mapping: 
-   1 $c-red lighten($c-red, 37%), 
-   2 $c-blue lighten($c-blue, 40%), 
-   3 $c-green lighten($c-green, 43%), 
-   4 $c-gray lighten($c-gray, 45%);
+   1 $c-red $c-red-lt, 
+   2 $c-blue $c-blue-lt, 
+   3 $c-green $c-green-lt, 
+   4 $c-gray $c-gray-lt;
 
    @each $child, $color, $bg in $box-mapping {
       .summary-box:nth-child(#{$child}) {

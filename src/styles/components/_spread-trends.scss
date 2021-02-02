@@ -63,7 +63,9 @@
 }
 
 .chart-wrapper {
-   canvas {
+   .chartjs-render-monitor {
+      background:$c-red-lt;
+      border-radius: 5px;
       width: 100% !important;
    }
 }

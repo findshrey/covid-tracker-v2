@@ -14,6 +14,20 @@ const formatNumber = (str) => {
    return num.toLocaleString('en-IN')
 }
 
+// Format Date
+const formatDate = (str) => {
+   const splitArg = str.includes('/') ? '/' : '-'
+
+   const [day, month, year] = str.split(splitArg)
+   const newDate = new Date(year, month - 1, day)
+
+   if (splitArg === '/') {
+      return format(newDate, "dd MMMM")
+   } else {
+      return format(newDate, "MMM dd")
+   }
+}
+
 // Convert military date-time to 12h format
 const getDateTime = (str) => {
    const [date, time] = str.split(' ')
@@ -25,18 +39,10 @@ const getDateTime = (str) => {
    return format(newDate, "dd MMM, hh:mm aaa")
 }
 
-// Get date
-const getDate = (str) => {
-   const [day, month, year] = str.split("/")
-
-   const newDate = new Date(year, month - 1, day)
-   return format(newDate, "dd MMMM")
-}
-
 const checkNum = (num) => {
    // if (isNaN(num)) {
    //    return 0
    // }
 }
 
-export { capitalize, formatNumber, getDateTime, getDate, checkNum }
+export { capitalize, formatNumber, formatDate, getDateTime, checkNum }
