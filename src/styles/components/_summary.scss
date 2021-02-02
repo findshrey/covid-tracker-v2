@@ -46,10 +46,10 @@
 }
 
 $box-mapping: 
-   1 $c-red $c-red-lt, 
-   2 $c-blue $c-blue-lt, 
-   3 $c-green $c-green-lt, 
-   4 $c-gray $c-gray-lt;
+   1 $c-red lighten($c-red, 40%), 
+   2 $c-blue lighten($c-blue, 45%), 
+   3 $c-green lighten($c-green, 50%), 
+   4 $c-gray lighten($c-gray, 50%);
 
    @each $child, $color, $bg in $box-mapping {
       .summary-box:nth-child(#{$child}) {
@@ -65,7 +65,7 @@ $box-mapping:
       }
    }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
    .summary-inner {
       grid-template-columns: repeat(2, 1fr);
    }

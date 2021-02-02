@@ -13,7 +13,7 @@ const SpreadCharts = ({ dates, confirmed, recovered, deceased }) => {
          {
             label: 'Confirmed',
             data: confirmed,
-            backgroundColor: 'rgba(226, 48, 40, 0.5)',
+            backgroundColor: 'rgba(226, 48, 40, 1)',
             borderColor: 'rgba(226, 48, 40, 1)',
             borderWidth: 1
          },
@@ -39,17 +39,17 @@ const SpreadCharts = ({ dates, confirmed, recovered, deceased }) => {
                gridLines: {
                   color: 'rgba(226, 48, 40, 1)',
                   drawOnChartArea: false,
-                  tickMarkLength: 6,
+                  tickMarkLength: 5,
                   zeroLineColor: 'rgba(226, 48, 40, 1)',
                },
                ticks: {
                   beginAtZero: true,
                   padding: 5,
-                  maxTicksLimit: 5, // 10
+                  maxTicksLimit: 5,
                   maxRotation: 0,
                   minRotation: 0
                },
-               // categoryPercentage: 1.0,
+               categoryPercentage: 1.0,
                // barPercentage: 1.0
             }
          ],
@@ -59,16 +59,20 @@ const SpreadCharts = ({ dates, confirmed, recovered, deceased }) => {
                gridLines: {
                   color: 'rgba(226, 48, 40, 1)',
                   drawOnChartArea: false,
-                  tickMarkLength: 6,
+                  tickMarkLength: 5,
                   zeroLineColor: 'rgba(226, 48, 40, 1)',
                },
                ticks: {
                   beginAtZero: true,
                   callback: function (label, index, labels) {
-                     return label / 1000 + 'k'
+                     if (label > 999 || label < -999) {
+                        return label / 1000 + 'k'
+                     } else {
+                        return label
+                     }
                   },
                   padding: 5,
-                  stepSize: 10000
+                  stepSize: 5000
                }
                // scaleLabel: {
                //    display: true,
@@ -80,9 +84,9 @@ const SpreadCharts = ({ dates, confirmed, recovered, deceased }) => {
       layout: {
          padding: {
             top: 5,
-            right: 10,
-            bottom: 10,
-            left: 25
+            right: 5,
+            bottom: 5,
+            left: 5
          }
       }
    }

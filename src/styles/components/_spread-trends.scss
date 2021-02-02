@@ -64,7 +64,7 @@
 
 .chart-wrapper {
    .chartjs-render-monitor {
-      background:$c-red-lt;
+      background: lighten($c-red, 40%);
       border-radius: 5px;
       width: 100% !important;
    }
