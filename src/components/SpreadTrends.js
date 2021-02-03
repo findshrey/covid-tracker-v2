@@ -8,8 +8,8 @@ import Chart from './Chart'
 
 const SpreadTrends = () => {
    const [spreadData, setSpreadData] = useState({})
-   const [chartData, setChartData] = useState([])
    const [chartDates, setChartDates] = useState([])
+   const [chartStats, setChartStats] = useState([])
 
    // Fetch statewise data
    useEffect(() => {
@@ -54,25 +54,25 @@ const SpreadTrends = () => {
       })
 
       setChartDates(stateDates)
-      setChartData([
+      setChartStats([
          { 'Confirmed': confirmedData },
          { 'Recovered': recoveredData },
          { 'Deceased': deceasedData }
       ])
    }
 
-   // console.log(chartData);
+   // console.log(chartStats);
 
    return (
       <section className="spread-trends">
          <SpreadHead handleCharts={handleCharts} />
          <div className="spread-charts">
             {
-               chartData.map((datasetData, index) => {
+               chartStats.map((stats, index) => {
                   return <Chart
                      key={index}
                      dates={chartDates}
-                     datasetData={datasetData}
+                     stats={stats}
                   />
                })
             }
