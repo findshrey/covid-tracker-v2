@@ -54,7 +54,11 @@ const SpreadTrends = () => {
       })
 
       setChartDates(stateDates)
-      setChartData([{ 'Confirmed': confirmedData }, { 'Recovered': recoveredData }, { 'Deceased': deceasedData }])
+      setChartData([
+         { 'Confirmed': confirmedData },
+         { 'Recovered': recoveredData },
+         { 'Deceased': deceasedData }
+      ])
    }
 
    // console.log(chartData);

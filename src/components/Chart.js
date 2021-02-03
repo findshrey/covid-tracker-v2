@@ -8,13 +8,13 @@ const SpreadCharts = ({ dates, datasetData }) => {
    if (label === 'Confirmed') {
       colorPallet = '#e85b55'
    } else if (label === 'Recovered') {
-      colorPallet = '#2fc250'
+      colorPallet = '#2bb54b'
    } else if (label === 'Deceased') {
       colorPallet = '#7d868e'
    }
 
    // defaults.global.defaultFontColor = colorPallet
-   defaults.global.defaultFontFamily = 'Montserrat'
+   defaults.global.defaultFontFamily = 'Fira Sans'
    defaults.global.defaultFontSize = 10
    defaults.global.defaultFontStyle = 600
    defaults.global.datasets.bar.categoryPercentage = 1.0;
@@ -43,7 +43,7 @@ const SpreadCharts = ({ dates, datasetData }) => {
          labels: {
             boxWidth: 0,
             fontColor: colorPallet,
-            fontSize: 18,
+            fontSize: 15,
             // padding: 5
          }
       },
