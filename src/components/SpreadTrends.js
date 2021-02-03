@@ -4,11 +4,12 @@ import axios from 'axios'
 // import { checkNum } from './../utils/commonFunctions'
 import { formatChartDate } from './../utils/commonFunctions'
 import SpreadHead from './SpreadHead'
-import SpreadCharts from './SpreadCharts'
+import Chart from './Chart'
 
 const SpreadTrends = () => {
    const [spreadData, setSpreadData] = useState({})
    const [chartData, setChartData] = useState([])
+   const [chartDates, setChartDates] = useState([])
 
    // Fetch statewise data
    useEffect(() => {
@@ -52,7 +53,8 @@ const SpreadTrends = () => {
          stateDates[index] = formatChartDate(date)
       })
 
-      setChartData([stateDates, confirmedData, recoveredData, deceasedData])
+      setChartDates(stateDates)
+      setChartData([{ 'Confirmed': confirmedData }, { 'Recovered': recoveredData }, { 'Deceased': deceasedData }])
    }
 
    // console.log(chartData);
@@ -60,12 +62,17 @@ const SpreadTrends = () => {
    return (
       <section className="spread-trends">
          <SpreadHead handleCharts={handleCharts} />
-         <SpreadCharts
-            dates={chartData[0]}
-            confirmed={chartData[1]}
-            recovered={chartData[2]}
-            deceased={chartData[3]}
-         />
+         <div className="spread-charts">
+            {
+               chartData.map((datasetData, index) => {
+                  return <Chart
+                     key={index}
+                     dates={chartDates}
+                     datasetData={datasetData}
+                  />
+               })
+            }
+         </div>
       </section>
    )
 }

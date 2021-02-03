@@ -3,7 +3,6 @@ import React from 'react'
 import { getDateTime, formatDate, formatNumber } from './../utils/commonFunctions'
 
 const Tested = ({ tested }) => {
-   console.log(tested[tested.length - 1].updatetimestamp);
    return (
       <div className="tested">
          <div className="tested-left">
