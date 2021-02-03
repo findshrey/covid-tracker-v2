@@ -8,9 +8,9 @@ const SpreadCharts = ({ dates, datasetData }) => {
    if (label === 'Confirmed') {
       colorPallet = '#e85b55'
    } else if (label === 'Recovered') {
-      colorPallet = '#28a745'
+      colorPallet = '#2fc250'
    } else if (label === 'Deceased') {
-      colorPallet = '#6c757d'
+      colorPallet = '#7d868e'
    }
 
    // defaults.global.defaultFontColor = colorPallet

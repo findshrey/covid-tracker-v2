@@ -62,15 +62,15 @@
    margin-top: 2rem;
 
    &:nth-child(1) .chartjs-render-monitor {
-      background: lighten($c-red, 40%);
+      background: lighten($c-red, 43%);
    } 
 
    &:nth-child(2) .chartjs-render-monitor {
-      background: lighten($c-green, 48%);
+      background: lighten($c-green, 50%);
    }
 
    &:nth-child(3) .chartjs-render-monitor {
-      background: lighten($c-gray, 48%);
+      background: lighten($c-gray, 50%);
    } 
 }
 
