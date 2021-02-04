@@ -7,7 +7,7 @@ import Vaccine from './Vaccine'
 import TableHead from './TableHead'
 import Table from './Table'
 import Tested from './Tested'
-import SpreadTrends from './SpreadTrends'
+import TimeSeries from './TimeSeries'
 import Footer from './Footer'
 import Spinner from './Spinner'
 
@@ -55,7 +55,7 @@ const CovidApp = () => {
          <main className="content-wrapper">
             <div className="container">
                {
-                  Object.keys(covidStats).length > 0 ?
+                  Object.keys(covidStats).length > 0 ? (
                      <>
                         <Summary summary={covidStats.statewise[0]} />
                         <div className="statistics">
@@ -66,11 +66,13 @@ const CovidApp = () => {
                            </div>
                            <div className="stats-right">
                               <Tested tested={covidStats.tested} />
-                              <SpreadTrends />
+                              <TimeSeries />
                            </div>
                         </div>
-                     </> :
-                     <Spinner />
+                     </>
+                  ) : (
+                        <Spinner />
+                     )
                }
             </div>
          </main>

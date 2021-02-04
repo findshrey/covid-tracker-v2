@@ -5,7 +5,7 @@ import IconActive from './../components/icons/IconActive'
 import IconRecovered from './../components/icons/IconRecovered'
 import IconDeceased from '../components/icons/IconDeaths'
 
-const SUMMARY_STATS = [
+const SUMMARY_TITLES = [
    {
       'title': 'confirmed',
       'icon': <IconConfirmed />
@@ -71,10 +71,19 @@ const STATE_NAMES = {
    WB: 'West Bengal',
 }
 
-const SPREAD_RANGES = {
-   31: '1 Month',
-   91: '3 Months',
-   181: '6 Months'
-}
+const TIMESERIES_RANGE = [
+   {
+      name: '1 month',
+      value: 31
+   },
+   {
+      name: '3 months',
+      value: 92
+   },
+   {
+      name: '6 months',
+      value: 183
+   }
+]
 
-export { SUMMARY_STATS, TABLE_HEADINGS, STATE_NAMES, SPREAD_RANGES }
+export { SUMMARY_TITLES, TABLE_HEADINGS, STATE_NAMES, TIMESERIES_RANGE }

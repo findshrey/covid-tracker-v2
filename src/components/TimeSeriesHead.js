@@ -1,26 +1,26 @@
 import React, { useState } from 'react'
 
-import { SPREAD_RANGES, STATE_NAMES } from './../data/constants'
+import { TIMESERIES_RANGE, STATE_NAMES } from '../data/constants'
 
-const SpreadHead = ({ handleOptions }) => {
+const TimeSeriesHead = ({ handleOptions }) => {
    const [activeBtn, setActiveBtn] = useState(0)
    const [selectedState, setSelectedState] = useState('DL')
 
-   const rangeKeys = Object.keys(SPREAD_RANGES)
-   const stateNameKeys = Object.keys(STATE_NAMES)
+   // Extract state codes
+   const stateCodes = Object.keys(STATE_NAMES)
 
    return (
-      <header className="spread-head">
+      <header className="time-series-head">
          <h2>Spread Trends</h2>
-         <div className="spread-range">
+         <div className="time-series-range">
             {
-               rangeKeys.map((range, index) => {
+               TIMESERIES_RANGE.map((range, index) => {
                   return <button
                      key={index}
                      className={index === activeBtn ? 'range-btn active' : 'range-btn'}
-                     onClick={() => { handleOptions('range', parseInt(range)); setActiveBtn(index) }}
+                     onClick={() => { setActiveBtn(index); handleOptions('range', range.value) }}
                   >
-                     {SPREAD_RANGES[range]}
+                     {range.name}
                   </button>
                })
             }
@@ -28,15 +28,15 @@ const SpreadHead = ({ handleOptions }) => {
          <select
             className="state-list"
             value={selectedState}
-            onChange={(e) => { handleOptions('stateCode', e.target.value); setSelectedState(e.target.value) }}
+            onChange={(e) => { setSelectedState(e.target.value); handleOptions('stateCode', e.target.value) }}
          >
             {
-               stateNameKeys.map((stateCode, index) => {
+               stateCodes.map((code, index) => {
                   return <option
                      key={index}
-                     value={stateCode}
+                     value={code}
                   >
-                     {STATE_NAMES[stateCode]}
+                     {STATE_NAMES[code]}
                   </option>
                })
             }
@@ -45,4 +45,4 @@ const SpreadHead = ({ handleOptions }) => {
    )
 }
 
-export { SpreadHead as default }
+export { TimeSeriesHead as default }

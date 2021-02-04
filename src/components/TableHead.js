@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { SUMMARY_STATS } from './../data/constants'
+import { SUMMARY_TITLES } from './../data/constants'
 
 const TableHead = ({ handleTableSort }) => {
    const [activeBtn, setActiveBtn] = useState(0)
@@ -8,7 +8,7 @@ const TableHead = ({ handleTableSort }) => {
    return (
       <div className="table-head">
          {
-            SUMMARY_STATS.map((stat, index) => {
+            SUMMARY_TITLES.map((stat, index) => {
                return (
                   <button
                      key={index}

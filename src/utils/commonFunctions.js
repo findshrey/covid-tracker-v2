@@ -41,17 +41,10 @@ const getDateTime = (str) => {
    return format(newDate, "dd MMM, hh:mm aaa")
 }
 
-const checkNum = (num) => {
-   // if (isNaN(num)) {
-   //    return 0
-   // }
-}
-
 export {
    capitalize,
    formatNumber,
    formatDate,
    formatChartDate,
-   getDateTime,
-   checkNum
+   getDateTime
 }

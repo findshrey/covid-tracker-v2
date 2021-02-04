@@ -1,6 +1,11 @@
 import React from 'react'
 import { defaults, Bar } from 'react-chartjs-2'
 
+defaults.global.defaultFontFamily = 'Fira Sans'
+defaults.global.defaultFontSize = 10
+defaults.global.defaultFontStyle = 600
+defaults.global.datasets.bar.categoryPercentage = 1.0
+
 const Chart = ({ dates, stats }) => {
    const chartLabel = Object.keys(stats)[0]
    let chartColor
@@ -12,11 +17,6 @@ const Chart = ({ dates, stats }) => {
    } else if (chartLabel === 'Deceased') {
       chartColor = '#7d868e'
    }
-
-   defaults.global.defaultFontFamily = 'Fira Sans'
-   defaults.global.defaultFontSize = 10
-   defaults.global.defaultFontStyle = 600
-   defaults.global.datasets.bar.categoryPercentage = 1.0
 
    const chartData = {
       labels: dates, // Y-axis data

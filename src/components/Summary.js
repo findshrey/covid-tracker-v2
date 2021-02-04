@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { SUMMARY_STATS } from './../data/constants'
+import { SUMMARY_TITLES } from './../data/constants'
 import { capitalize, formatNumber, getDateTime } from './../utils/commonFunctions'
 import IconClock from './icons/IconClock'
 
@@ -15,7 +15,7 @@ const Summary = ({ summary }) => {
          </div>
          <div className="summary-inner">
             {
-               SUMMARY_STATS.map((stat, index) => {
+               SUMMARY_TITLES.map((stat, index) => {
                   return (
                      <SummaryBox
                         key={index}

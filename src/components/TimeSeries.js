@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-// import { checkNum } from './../utils/commonFunctions'
 import { formatChartDate } from './../utils/commonFunctions'
-import SpreadHead from './SpreadHead'
+import TimeSeriesHead from './TimeSeriesHead'
 import Chart from './Chart'
 
 // Update graph state and rangewise
-const handleCharts = (data, { stateCode, range }) => {
+const filterData = (data, { stateCode, range }) => {
    if (!data?.[stateCode]?.dates) {
-      return [[], []];
+      return { dates: [], stats: [] }
    }
 
-   // Datewise state data
+   // Datewise state's data
    const stateData = data[stateCode].dates
 
    // Extract dates
@@ -40,43 +39,49 @@ const handleCharts = (data, { stateCode, range }) => {
       stateDates[index] = formatChartDate(date)
    })
 
-   return [stateDates, [{ 'Confirmed': confirmedData }, { 'Recovered': recoveredData }, { 'Deceased': deceasedData }]]
+   return {
+      dates: stateDates,
+      stats: [
+         { Confirmed: confirmedData },
+         { Recovered: recoveredData },
+         { Deceased: deceasedData }
+      ]
+   }
 }
 
-const SpreadTrends = () => {
-   const [spreadData, setSpreadData] = useState({})
-   const [options, setOptions] = useState({ stateCode: 'DL', range: 30 })
+const TimeSeries = () => {
+   const [timeSeriesData, setTimeSeriesData] = useState({})
+   const [options, setOptions] = useState({ stateCode: 'DL', range: 31 })
 
-   // Fetch statewise data
+   // Fetch statewise daily data
    useEffect(() => {
       const getData = async () => {
          const response = await axios.get('https://api.covid19india.org/v4/timeseries.json')
 
-         setSpreadData(response.data)
+         setTimeSeriesData(response.data)
       }
 
       getData()
    }, [])
 
-   const handleOptions = (type, value) => {
-      setOptions({ ...options, [type]: value })
+   // Set stateCode/ range
+   const handleOptions = (option, value) => {
+      setOptions({ ...options, [option]: value })
    }
 
-   // console.log(spreadData);
-   const aa = handleCharts(spreadData, options)
-   const bb = aa[0]
-   const cc = aa[1]
+   // Filter data based on selected state and range
+   const filteredData = filterData(timeSeriesData, options)
 
    return (
-      <section className="spread-trends">
-         <SpreadHead handleOptions={handleOptions} />
-         <div className="spread-charts">
+      <section className="time-series">
+         <TimeSeriesHead handleOptions={handleOptions} />
+         <div className="time-series-charts">
             {
-               cc.map((stats, index) => {
+               filteredData.stats.map((stat, index) => {
                   return <Chart
                      key={index}
-                     dates={bb}
-                     stats={stats}
+                     dates={filteredData.dates}
+                     stats={stat}
                   />
                })
             }
@@ -85,4 +90,4 @@ const SpreadTrends = () => {
    )
 }
 
-export { SpreadTrends as default }
+export { TimeSeries as default }
