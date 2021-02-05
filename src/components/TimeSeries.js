@@ -5,7 +5,7 @@ import { formatChartDate } from './../utils/commonFunctions'
 import TimeSeriesHead from './TimeSeriesHead'
 import Chart from './Chart'
 
-// Update graph state and rangewise
+// Filter data using stateCode and range
 const filterData = (data, { stateCode, range }) => {
    if (!data?.[stateCode]?.dates) {
       return { dates: [], stats: [] }
@@ -23,15 +23,13 @@ const filterData = (data, { stateCode, range }) => {
    let recoveredData = []
    let deceasedData = []
 
+   // Populate stats for each date
    stateDates.forEach((date) => {
       const delta = stateData[date].delta
 
-      if (delta) {
-         confirmedData.push(delta.confirmed)
-         // activeData.push(checkNum(delta.confirmed - (delta.recovered + delta.deceased)))
-         recoveredData.push(delta.recovered)
-         deceasedData.push(delta.deceased)
-      }
+      confirmedData.push(delta?.confirmed ?? 0)
+      recoveredData.push(delta?.recovered ?? 0)
+      deceasedData.push(delta?.deceased ?? 0)
    })
 
    // Format date

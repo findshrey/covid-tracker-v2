@@ -3,7 +3,7 @@ import React from 'react'
 import IconConfirmed from './../components/icons/IconConfirmed'
 import IconActive from './../components/icons/IconActive'
 import IconRecovered from './../components/icons/IconRecovered'
-import IconDeceased from '../components/icons/IconDeaths'
+import IconDeaths from './../components/icons/IconDeaths'
 
 const SUMMARY_TITLES = [
    {
@@ -20,7 +20,7 @@ const SUMMARY_TITLES = [
    },
    {
       'title': 'deaths',
-      'icon': <IconDeceased />
+      'icon': <IconDeaths />
    }
 ]
 
@@ -86,4 +86,9 @@ const TIMESERIES_RANGE = [
    }
 ]
 
-export { SUMMARY_TITLES, TABLE_HEADINGS, STATE_NAMES, TIMESERIES_RANGE }
+export {
+   SUMMARY_TITLES,
+   TABLE_HEADINGS,
+   STATE_NAMES,
+   TIMESERIES_RANGE
+}
