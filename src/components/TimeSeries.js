@@ -28,7 +28,9 @@ const filterData = (data, { stateCode, range }) => {
       const delta = stateData[date].delta
 
       confirmedData.push(delta?.confirmed ?? 0)
-      activeData.push((delta?.confirmed ?? 0) - ((delta?.recovered ?? 0) + (delta?.deceased ?? 0)))
+      activeData.push(
+         (delta?.confirmed ?? 0) - ((delta?.recovered ?? 0) + (delta?.deceased ?? 0))
+      )
       recoveredData.push(delta?.recovered ?? 0)
       deceasedData.push(delta?.deceased ?? 0)
    })
@@ -69,7 +71,6 @@ const TimeSeries = () => {
       setOptions({ ...options, [option]: value })
    }
 
-   // Filter data based on selected state and range
    const filteredData = filterData(timeSeriesData, options)
 
    return (

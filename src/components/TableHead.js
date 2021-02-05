@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { SUMMARY_TITLES } from './../data/constants'
 
-const TableHead = ({ handleTableSort }) => {
+const TableHead = ({ handleSortOption }) => {
    const [activeBtn, setActiveBtn] = useState(0)
 
    return (
@@ -12,7 +12,7 @@ const TableHead = ({ handleTableSort }) => {
                return (
                   <button
                      key={index}
-                     onClick={() => { setActiveBtn(index); handleTableSort(undefined, stat.title) }}
+                     onClick={() => { setActiveBtn(index); handleSortOption(stat.title) }}
                      className={index === activeBtn ? 'table-btn active' : 'table-btn'}
                      title={`Sort by ${stat.title}`}
                   >

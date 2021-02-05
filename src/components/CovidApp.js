@@ -11,10 +11,32 @@ import TimeSeries from './TimeSeries'
 import Footer from './Footer'
 import Spinner from './Spinner'
 
+// Sort table data by selected option
+const sortData = (data, sortBy) => {
+   if (!data) {
+      return []
+   }
+
+   let statesOnly = data.filter((el) => el.state !== 'Total' && el.state !== 'State Unassigned')
+
+   if (sortBy) {
+      statesOnly = statesOnly.sort((a, b) => {
+         if (parseInt(a[sortBy]) < parseInt(b[sortBy])) {
+            return 1
+         } else if (parseInt(b[sortBy]) < parseInt(a[sortBy])) {
+            return -1
+         } else {
+            return 0
+         }
+      })
+   }
+
+   return statesOnly
+}
 
 const CovidApp = () => {
    const [covidStats, setCovidStats] = useState({})
-   const [sortedStats, setSortedStats] = useState([])
+   const [sortBy, setSortBy] = useState('confirmed')
 
    // Fetch data from endpoint
    useEffect(() => {
@@ -22,32 +44,17 @@ const CovidApp = () => {
          const response = await axios.get('https://api.covid19india.org/data.json')
 
          setCovidStats(response.data)
-
-         const statewiseStats = response.data.statewise
-         handleTableSort(statewiseStats, 'confirmed')
       }
 
       getData()
    }, [])
 
-   // Sort table stats by selected option
-   const handleTableSort = (statesData = sortedStats, sortBy) => {
-      let statesOnly = statesData.filter((el) => el.state !== 'Total' && el.state !== 'State Unassigned')
-
-      if (sortBy) {
-         statesOnly = statesOnly.sort((a, b) => {
-            if (parseInt(a[sortBy]) < parseInt(b[sortBy])) {
-               return 1
-            } else if (parseInt(b[sortBy]) < parseInt(a[sortBy])) {
-               return -1
-            } else {
-               return 0
-            }
-         })
-      }
-
-      setSortedStats(statesOnly)
+   // Set sort option
+   const handleSortOption = (option) => {
+      setSortBy(option)
    }
+
+   const sortedData = sortData(covidStats.statewise, sortBy)
 
    return (
       <>
@@ -61,8 +68,8 @@ const CovidApp = () => {
                         <div className="statistics">
                            <div className="stats-left">
                               <Vaccine vaccine={covidStats.tested} />
-                              <TableHead handleTableSort={handleTableSort} />
-                              <Table sortedStats={sortedStats} />
+                              <TableHead handleSortOption={handleSortOption} />
+                              <Table sortedStats={sortedData} />
                            </div>
                            <div className="stats-right">
                               <Tested tested={covidStats.tested} />
