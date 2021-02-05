@@ -10,12 +10,19 @@ const Chart = ({ dates, stats }) => {
    const chartLabel = Object.keys(stats)[0]
    let chartColor
 
-   if (chartLabel === 'Confirmed') {
-      chartColor = '#e85b55'
-   } else if (chartLabel === 'Recovered') {
-      chartColor = '#2bb54b'
-   } else if (chartLabel === 'Deceased') {
-      chartColor = '#7d868e'
+   switch (chartLabel) {
+      case 'Confirmed':
+         chartColor = '#e85b55'
+         break;
+      case 'Active':
+         chartColor = '#0073ee'
+         break
+      case 'Recovered':
+         chartColor = '#2bb54b'
+         break
+      case 'Deceased':
+         chartColor = '#7d868e'
+         break
    }
 
    const chartData = {

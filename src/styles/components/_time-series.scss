@@ -66,10 +66,14 @@
    } 
 
    &:nth-child(2) .chartjs-render-monitor {
-      background: lighten($c-green, 50%);
+      background: lighten($c-blue, 45%);
    }
 
    &:nth-child(3) .chartjs-render-monitor {
+      background: lighten($c-green, 50%);
+   } 
+
+   &:nth-child(4) .chartjs-render-monitor {
       background: lighten($c-gray, 50%);
    } 
 }

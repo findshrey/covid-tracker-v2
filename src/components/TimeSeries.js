@@ -19,7 +19,7 @@ const filterData = (data, { stateCode, range }) => {
    stateDates = stateDates.slice(-range)
 
    let confirmedData = []
-   // let activeData = []
+   let activeData = []
    let recoveredData = []
    let deceasedData = []
 
@@ -28,6 +28,7 @@ const filterData = (data, { stateCode, range }) => {
       const delta = stateData[date].delta
 
       confirmedData.push(delta?.confirmed ?? 0)
+      activeData.push((delta?.confirmed ?? 0) - ((delta?.recovered ?? 0) + (delta?.deceased ?? 0)))
       recoveredData.push(delta?.recovered ?? 0)
       deceasedData.push(delta?.deceased ?? 0)
    })
@@ -41,6 +42,7 @@ const filterData = (data, { stateCode, range }) => {
       dates: stateDates,
       stats: [
          { Confirmed: confirmedData },
+         { Active: activeData },
          { Recovered: recoveredData },
          { Deceased: deceasedData }
       ]
