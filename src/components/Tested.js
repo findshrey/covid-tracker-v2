@@ -10,7 +10,7 @@ const Tested = ({ tested }) => {
             <p>Last Updated on {getDateTime(tested[tested.length - 1].updatetimestamp)}</p>
          </div>
          <div className="tested-right">
-            <h4>Tested</h4>
+            <h3>Tested</h3>
             <div className="sample-tested">{formatNumber(tested[tested.length - 1].totalsamplestested)}</div>
             <p>As of {formatDate(tested[tested.length - 1].testedasof)}</p>
          </div>

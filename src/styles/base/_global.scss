@@ -29,10 +29,10 @@ h2 {
    font-size: $h2;
 }
 h3 {
-   // font-size: $h3;
+   font-size: $font-s;
 }
 
-div, span, h4, p, a, li, button, label, input {
+div, span, p, a, li, button, label, input {
    font-size: $font-s;
    font-weight: 600;
 }
@@ -49,29 +49,12 @@ a {
 button {
    cursor: pointer;
    font-family: inherit;
-   outline: none;
+   
+   &:focus {
+      outline: none;
+   }
 }
 
 img {
    width: 100%;
-}
-
-// Footer 
-footer {
-   text-align: center;
-   padding: 6rem 2rem;
-
-   h3 {
-      background: lighten($c-navy, 30%);
-      border-radius: 5px;
-      color: darken($c-navy, 5%);
-      display: inline-block;
-      letter-spacing: 1px;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-   }
-
-   span {
-      display: block;
-   }
 }

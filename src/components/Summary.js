@@ -9,9 +9,9 @@ const Summary = ({ summary }) => {
       <section className="summary">
          <div className="update-time">
             <IconClock />
-            <h4 className="time">
+            <div className="time">
                {`Last Updated on ${getDateTime(summary.lastupdatedtime)}`}
-            </h4>
+            </div>
          </div>
          <div className="summary-inner">
             {
@@ -33,7 +33,7 @@ const Summary = ({ summary }) => {
 const SummaryBox = ({ summary, stat }) => {
    return (
       <div className="summary-box">
-         <h4 className="title">{capitalize(stat.title)}</h4>
+         <h3 className="title">{capitalize(stat.title)}</h3>
          <div className="new-cases">
             {
                summary[`delta${stat.title}`] && '+' + formatNumber(summary[`delta${stat.title}`])
