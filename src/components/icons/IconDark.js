@@ -1,6 +1,6 @@
 import React from 'react'
 
-const IconNight = () => {
+const IconDark = () => {
    return (
       <svg
          xmlns="http://www.w3.org/2000/svg"
@@ -13,4 +13,4 @@ const IconNight = () => {
    )
 }
 
-export { IconNight as default }
+export { IconDark as default }

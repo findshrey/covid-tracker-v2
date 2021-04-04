@@ -7,11 +7,21 @@
       align-items: center;
       justify-content: space-between;
    }
+
+   &.dark {
+      background-color: $c-jaguar;
+   }
 }
 
-.logo span {
-   color: $c-navy;
-   font-size: $h1;
+.logo {
+   span {
+      color: $c-navy;
+      font-size: $h1;
+   }
+
+   &.dark {
+      color: lighten($c-gray, 30%);
+   }
 }
 
 .theme-icon {
@@ -22,5 +32,11 @@
    
    svg {
       fill: $c-navy;
+   }
+
+   &.dark {
+      svg {
+         fill: lighten(#fd7e14, 20%);
+      }
    }
 }
