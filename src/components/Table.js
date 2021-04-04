@@ -5,7 +5,7 @@ import { formatNumber } from './../utils/commonFunctions'
 
 const Table = ({ sortedStats }) => {
    return (
-      <section className="table">
+      <div className="table">
          <div className="table-inner">
             <div className="table-headings">
                {
@@ -28,7 +28,7 @@ const Table = ({ sortedStats }) => {
                }
             </div>
          </div>
-      </section>
+      </div>
    )
 }
 
