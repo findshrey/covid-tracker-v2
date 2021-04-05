@@ -64,7 +64,7 @@ $box-mapping:
          }
 
          &.dark {
-            background-color: $c-jaguar;
+            background-color: rgba(darken($bg, 40%), 0.2);
          }
       }
    }
