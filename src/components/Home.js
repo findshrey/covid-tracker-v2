@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 
 import Summary from './Summary'
@@ -8,6 +8,7 @@ import Table from './Table'
 import Tested from './Tested'
 import TimeSeries from './TimeSeries'
 import Spinner from './Spinner'
+import ThemeContext from './../context/theme-context'
 
 // Sort table data by selected option
 const sortData = (data, sortBy) => {
@@ -35,6 +36,7 @@ const sortData = (data, sortBy) => {
 const Home = () => {
    const [covidStats, setCovidStats] = useState({})
    const [sortBy, setSortBy] = useState('confirmed')
+   const { darkTheme } = useContext(ThemeContext)
 
    // Fetch data from endpoint
    useEffect(() => {
@@ -54,8 +56,10 @@ const Home = () => {
 
    const sortedData = sortData(covidStats.statewise, sortBy)
 
+   const classUpdate = darkTheme && 'dark'
+
    return (
-      <main className="home">
+      <main className={`home ${classUpdate}`}>
          <div className="container">
             {
                Object.keys(covidStats).length > 0 ? (

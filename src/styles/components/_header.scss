@@ -1,6 +1,6 @@
 .site-head {
-   background: darken($c-white, 3%);
-   padding: 1rem 0;
+   background-color: darken($c-white, 3%);
+   padding: 1.5rem 0;
 
    .container {
       display: flex;
@@ -21,11 +21,15 @@
 
    &.dark {
       color: lighten($c-gray, 30%);
+
+      span {
+         color: $c-blue;
+      }
    }
 }
 
 .theme-icon {
-   background: transparent;
+   background-color: transparent;
    border: none;
    display: flex;
    align-items: center;

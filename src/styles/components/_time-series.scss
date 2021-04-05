@@ -3,7 +3,6 @@
    margin-top: 4rem;
 
    h2 {
-      color: darken($c-gray, 5%);
       text-align: center;
       margin-bottom: 3rem;
    }
@@ -17,18 +16,33 @@
    vertical-align:top;
 
    .range-btn {
+      background-color: lighten($c-mustard, 40%);
       border: none;
-      color: $c-mustard;
-      background: lighten($c-mustard, 40%);
-      padding: 1rem;
       border-right: 2px solid lighten($c-mustard, 30%);
+      color: $c-mustard;
+      padding: 1rem;
    
       &:last-child {
          border-right: none;
       }
    
       &.active {
-         background: lighten($c-mustard, 30%);
+         background-color: lighten($c-mustard, 30%);
+      }
+   }
+
+   &.dark {
+      .range-btn {
+         background-color: rgba($c-mustard, 0.2);
+         border-right: 2px solid rgba($c-mustard, 0.4);
+
+         &:last-child {
+            border-right: none;
+         }
+
+         &.active {
+            background-color: rgba($c-mustard, 0.4);
+         }
       }
    }
 }
@@ -37,7 +51,7 @@
    appearance: none;
    background: url('./../images/chevron.svg') no-repeat calc(100% - 0.8rem) center darken($c-white, 3%);
    border: 2px solid darken($c-white, 13%);
-   border-radius: 3px;
+   border-radius: 5px;
    color: $c-gray;
    cursor: pointer;
    display: block;
@@ -55,6 +69,11 @@
    option {
       font-weight: inherit;
    }
+
+   &.dark {
+      background-color: $c-jaguar;
+      border: 2px solid lighten($c-jaguar, 15%);
+   }
 }
 
 // Chart Component
@@ -62,20 +81,38 @@
    margin-top: 2rem;
 
    &:nth-child(1) .chartjs-render-monitor {
-      background: lighten($c-red, 43%);
+      background-color: lighten($c-red, 43%);
    } 
 
    &:nth-child(2) .chartjs-render-monitor {
-      background: lighten($c-blue, 45%);
+      background-color: lighten($c-blue, 45%);
    }
 
    &:nth-child(3) .chartjs-render-monitor {
-      background: lighten($c-green, 50%);
+      background-color: lighten($c-green, 50%);
    } 
 
    &:nth-child(4) .chartjs-render-monitor {
-      background: lighten($c-gray, 50%);
-   } 
+      background-color: lighten($c-gray, 50%);
+   }
+
+   &.dark {
+      &:nth-child(1) .chartjs-render-monitor {
+         background-color: rgba($c-red, 0.2);
+      } 
+   
+      &:nth-child(2) .chartjs-render-monitor {
+         background-color: rgba($c-blue, 0.2);
+      }
+   
+      &:nth-child(3) .chartjs-render-monitor {
+         background-color: rgba($c-green, 0.2);
+      } 
+   
+      &:nth-child(4) .chartjs-render-monitor {
+         background-color: rgba($c-gray, 0.2);
+      }
+   }
 }
 
 .chartjs-render-monitor {

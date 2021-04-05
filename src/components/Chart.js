@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { defaults, Bar } from 'react-chartjs-2'
+
+import ThemeContext from './../context/theme-context'
 
 defaults.global.defaultFontFamily = 'Fira Sans'
 defaults.global.defaultFontSize = 10
@@ -7,21 +9,25 @@ defaults.global.defaultFontStyle = 600
 defaults.global.datasets.bar.categoryPercentage = 1.0
 
 const Chart = ({ dates, stats }) => {
+   const { darkTheme } = useContext(ThemeContext)
+
+   const classUpdate = darkTheme && 'dark'
+
    const chartLabel = Object.keys(stats)[0]
    let chartColor
 
    switch (chartLabel) {
       case 'Confirmed':
-         chartColor = '#e85b55'
+         chartColor = '#e23028'
          break;
       case 'Active':
-         chartColor = '#0073ee'
+         chartColor = '#007bff'
          break
       case 'Recovered':
-         chartColor = '#2bb54b'
+         chartColor = '#28a745'
          break
       case 'Deceased':
-         chartColor = '#7d868e'
+         chartColor = '#6c757d'
          break
    }
 
@@ -107,7 +113,7 @@ const Chart = ({ dates, stats }) => {
    }
 
    return (
-      <div className="chart-wrapper">
+      <div className={`chart-wrapper ${classUpdate}`}>
          <Bar data={chartData} options={options} />
       </div>
    )

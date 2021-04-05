@@ -54,13 +54,17 @@ $box-mapping:
    @each $child, $color, $bg in $box-mapping {
       .summary-box:nth-child(#{$child}) {
          color: $color;
-         background: $bg;
+         background-color: $bg;
          border-radius: 5px;
 
          svg {
             fill: $color;
             height: 30px;
             width: 30px;
+         }
+
+         &.dark {
+            background-color: $c-jaguar;
          }
       }
    }

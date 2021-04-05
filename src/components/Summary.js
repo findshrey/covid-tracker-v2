@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { SUMMARY_TITLES } from './../data/constants'
 import { capitalize, formatNumber, getDateTime } from './../utils/commonFunctions'
 import IconClock from './icons/IconClock'
+import ThemeContext from './../context/theme-context'
 
 const Summary = ({ summary }) => {
    return (
@@ -31,8 +32,12 @@ const Summary = ({ summary }) => {
 }
 
 const SummaryBox = ({ summary, stat }) => {
+   const { darkTheme } = useContext(ThemeContext)
+
+   const classUpdate = darkTheme && 'dark'
+
    return (
-      <div className="summary-box">
+      <div className={`summary-box ${classUpdate}`}>
          <h3 className="title">{capitalize(stat.title)}</h3>
          <div className="new-cases">
             {
