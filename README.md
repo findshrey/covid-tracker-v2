@@ -2,7 +2,8 @@
 
 Tracking the impact of COVID-19 in India. Hosted with [Netlify](https://www.netlify.com).
 
-![demo](src/readme_images/demo.png?raw=true)
+![demo-1](readme_images/demo-1.png?raw=true)
+![demo-2](readme_images/demo-2.png?raw=true)
 
 ## Installation & Set Up
 
