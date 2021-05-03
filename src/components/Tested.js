@@ -17,7 +17,7 @@ const Tested = ({ tested }) => {
          <div className="tested-right">
             <h3>Tested</h3>
             <div className={`sample-tested ${classUpdate}`}>{formatNumber(tested[tested.length - 1].totalsamplestested)}</div>
-            <p>As of {formatDate(tested[tested.length - 1].testedasof)}</p>
+            <span>As of {formatDate(tested[tested.length - 1].testedasof)}</span>
          </div>
       </div>
    )

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 
-import { TIMESERIES_RANGE, STATE_NAMES } from '../data/constants'
+import { TIMESERIES_RANGE, STATE_NAMES } from './../data/constants'
 import ThemeContext from './../context/theme-context'
 
 const TimeSeriesHead = ({ handleOptions }) => {
