@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import IconDark from './icons/IconDark'
 import IconLight from './icons/IconLight'
-import ThemeContext from './../context/theme-context'
+import ThemeContext from '../context/ThemeContext'
 
 const Header = () => {
    const { darkTheme, handleDarkTheme } = useContext(ThemeContext)

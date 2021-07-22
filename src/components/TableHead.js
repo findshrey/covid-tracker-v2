@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 
 import { SUMMARY_TITLES } from './../data/constants'
-import ThemeContext from './../context/theme-context'
+import ThemeContext from '../context/ThemeContext'
 
 const TableHead = ({ handleSortOption }) => {
    const [activeBtn, setActiveBtn] = useState(0)

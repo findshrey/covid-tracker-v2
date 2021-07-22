@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import { getDateTime, formatDate, formatNumber } from './../utils/commonFunctions'
-import ThemeContext from './../context/theme-context'
+import ThemeContext from '../context/ThemeContext'
 
 const Tested = ({ tested }) => {
    const { darkTheme } = useContext(ThemeContext)

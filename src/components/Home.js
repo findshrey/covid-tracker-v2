@@ -8,7 +8,7 @@ import Table from './Table'
 import Tested from './Tested'
 import TimeSeries from './TimeSeries'
 import Spinner from './Spinner'
-import ThemeContext from './../context/theme-context'
+import ThemeContext from '../context/ThemeContext'
 
 // Sort table data by selected option
 const sortData = (data, sortBy) => {

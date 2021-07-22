@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { defaults, Bar } from 'react-chartjs-2'
 
-import ThemeContext from './../context/theme-context'
+import ThemeContext from '../context/ThemeContext'
 
 defaults.global.defaultFontFamily = 'Fira Sans'
 defaults.global.defaultFontSize = 10

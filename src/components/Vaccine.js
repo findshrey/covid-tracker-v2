@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import { formatNumber } from './../utils/commonFunctions'
 import IconShield from './icons/IconShield'
-import ThemeContext from './../context/theme-context'
+import ThemeContext from '../context/ThemeContext'
 
 const Vaccine = ({ vaccine }) => {
    const { darkTheme } = useContext(ThemeContext)

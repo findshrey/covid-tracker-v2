@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import { TABLE_HEADINGS } from './../data/constants'
 import { formatNumber } from './../utils/commonFunctions'
-import ThemeContext from './../context/theme-context'
+import ThemeContext from '../context/ThemeContext'
 
 const Table = ({ sortedStats }) => {
    const { darkTheme } = useContext(ThemeContext)
