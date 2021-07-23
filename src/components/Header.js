@@ -5,9 +5,10 @@ import IconLight from './icons/IconLight'
 import ThemeContext from '../context/ThemeContext'
 
 const Header = () => {
-   const { darkTheme, handleDarkTheme } = useContext(ThemeContext)
+   // const { darkTheme, handleTheme } = useContext(ThemeContext)
+   const themeCtx = useContext(ThemeContext)
 
-   const classUpdate = darkTheme && 'dark'
+   const classUpdate = themeCtx.darkTheme && 'dark'
 
    return (
       <header className={`site-head ${classUpdate}`}>
@@ -17,10 +18,10 @@ const Header = () => {
             </h1>
             <button
                className={`theme-icon ${classUpdate}`}
-               onClick={() => handleDarkTheme()}
+               onClick={themeCtx.handleTheme}
             >
                {
-                  darkTheme ? <IconLight /> : <IconDark />
+                  themeCtx.darkTheme ? <IconLight /> : <IconDark />
                }
             </button>
          </div>

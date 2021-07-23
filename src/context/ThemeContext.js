@@ -9,8 +9,14 @@ const ThemeProvider = ({ children }) => {
       setDarkTheme((prevTheme) => !prevTheme)
    }
 
+   // Context data to be shared
+   const contextData = {
+      darkTheme,
+      handleTheme: handleDarkTheme
+   }
+
    return (
-      <ThemeContext.Provider value={{ darkTheme, handleDarkTheme }}>
+      <ThemeContext.Provider value={contextData}>
          {children}
       </ThemeContext.Provider>
    )
