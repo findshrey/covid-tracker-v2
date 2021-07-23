@@ -5,7 +5,6 @@ import IconLight from './icons/IconLight'
 import ThemeContext from '../context/ThemeContext'
 
 const Header = () => {
-   // const { darkTheme, handleTheme } = useContext(ThemeContext)
    const themeCtx = useContext(ThemeContext)
 
    const classUpdate = themeCtx.darkTheme && 'dark'

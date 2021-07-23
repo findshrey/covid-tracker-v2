@@ -4,9 +4,9 @@ import { getDateTime, formatDate, formatNumber } from './../utils/commonFunction
 import ThemeContext from '../context/ThemeContext'
 
 const Tested = ({ tested }) => {
-   const { darkTheme } = useContext(ThemeContext)
+   const themeCtx = useContext(ThemeContext)
 
-   const classUpdate = darkTheme && 'dark'
+   const classUpdate = themeCtx.darkTheme && 'dark'
 
    return (
       <div className="tested">

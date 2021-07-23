@@ -36,7 +36,7 @@ const sortData = (data, sortBy) => {
 const Home = () => {
    const [covidStats, setCovidStats] = useState({})
    const [sortBy, setSortBy] = useState('confirmed')
-   const { darkTheme } = useContext(ThemeContext)
+   const themeCtx = useContext(ThemeContext)
 
    // Fetch data from endpoint
    useEffect(() => {
@@ -56,7 +56,7 @@ const Home = () => {
 
    const sortedData = sortData(covidStats.statewise, sortBy)
 
-   const classUpdate = darkTheme && 'dark'
+   const classUpdate = themeCtx.darkTheme && 'dark'
 
    return (
       <main className={`home ${classUpdate}`}>

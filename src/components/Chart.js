@@ -9,9 +9,9 @@ defaults.global.defaultFontStyle = 600
 defaults.global.datasets.bar.categoryPercentage = 1.0
 
 const Chart = ({ dates, stats }) => {
-   const { darkTheme } = useContext(ThemeContext)
+   const themeCtx = useContext(ThemeContext)
 
-   const classUpdate = darkTheme && 'dark'
+   const classUpdate = themeCtx.darkTheme && 'dark'
 
    const chartLabel = Object.keys(stats)[0]
    let chartColor

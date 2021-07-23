@@ -5,9 +5,9 @@ import IconShield from './icons/IconShield'
 import ThemeContext from '../context/ThemeContext'
 
 const Vaccine = ({ vaccine }) => {
-   const { darkTheme } = useContext(ThemeContext)
-
-   const classUpdate = darkTheme && 'dark'
+   const themeCtx = useContext(ThemeContext)
+   
+   const classUpdate = themeCtx.darkTheme && 'dark'
 
    return (
       <div className="vaccine">

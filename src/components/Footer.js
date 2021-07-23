@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import ThemeContext from '../context/ThemeContext'
 
 const Footer = () => {
-   const { darkTheme } = useContext(ThemeContext)
+   const themeCtx = useContext(ThemeContext)
 
-   const classUpdate = darkTheme && 'dark'
+   const classUpdate = themeCtx.darkTheme && 'dark'
 
    return (
       <footer className={`${classUpdate}`}>
