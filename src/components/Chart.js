@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { defaults, Bar } from 'react-chartjs-2'
+import React, { useContext } from "react"
+import { defaults, Bar } from "react-chartjs-2"
 
-import ThemeContext from '../context/ThemeContext'
+import ThemeContext from "../context/ThemeContext"
 
-defaults.global.defaultFontFamily = 'Fira Sans'
+defaults.global.defaultFontFamily = "Fira Sans"
 defaults.global.defaultFontSize = 10
 defaults.global.defaultFontStyle = 600
 defaults.global.datasets.bar.categoryPercentage = 1.0
@@ -11,23 +11,23 @@ defaults.global.datasets.bar.categoryPercentage = 1.0
 const Chart = ({ dates, stats }) => {
    const themeCtx = useContext(ThemeContext)
 
-   const classUpdate = themeCtx.darkTheme && 'dark'
+   const themeClass = themeCtx.darkTheme ? "dark" : ""
 
    const chartLabel = Object.keys(stats)[0]
    let chartColor
 
    switch (chartLabel) {
-      case 'Confirmed':
-         chartColor = '#e23028'
-         break;
-      case 'Active':
-         chartColor = '#007bff'
+      case "Confirmed":
+         chartColor = "#e23028"
          break
-      case 'Recovered':
-         chartColor = '#28a745'
+      case "Active":
+         chartColor = "#007bff"
          break
-      case 'Deceased':
-         chartColor = '#6c757d'
+      case "Recovered":
+         chartColor = "#28a745"
+         break
+      case "Deceased":
+         chartColor = "#6c757d"
          break
    }
 
@@ -39,9 +39,9 @@ const Chart = ({ dates, stats }) => {
             data: stats[chartLabel], // X-axis data
             backgroundColor: chartColor,
             borderColor: chartColor,
-            borderWidth: 1
-         }
-      ]
+            borderWidth: 1,
+         },
+      ],
    }
 
    const options = {
@@ -52,17 +52,17 @@ const Chart = ({ dates, stats }) => {
             top: 5,
             right: 5,
             bottom: 5,
-            left: 5
-         }
+            left: 5,
+         },
       },
       legend: {
          display: true,
-         align: 'start',
+         align: "start",
          labels: {
             boxWidth: 0,
             fontColor: chartColor,
-            fontSize: 15
-         }
+            fontSize: 15,
+         },
       },
       scales: {
          xAxes: [
@@ -72,7 +72,7 @@ const Chart = ({ dates, stats }) => {
                   drawOnChartArea: false,
                   lineWidth: 2,
                   tickMarkLength: 5,
-                  zeroLineColor: chartColor
+                  zeroLineColor: chartColor,
                },
                ticks: {
                   beginAtZero: true,
@@ -80,19 +80,19 @@ const Chart = ({ dates, stats }) => {
                   padding: 5,
                   maxRotation: 0,
                   minRotation: 0,
-                  maxTicksLimit: 5
-               }
-            }
+                  maxTicksLimit: 5,
+               },
+            },
          ],
          yAxes: [
             {
-               position: 'right',
+               position: "right",
                gridLines: {
                   color: chartColor,
                   drawOnChartArea: false,
                   lineWidth: 2,
                   tickMarkLength: 5,
-                  zeroLineColor: chartColor
+                  zeroLineColor: chartColor,
                },
                ticks: {
                   beginAtZero: true,
@@ -101,19 +101,19 @@ const Chart = ({ dates, stats }) => {
                   stepSize: 5000,
                   callback: function (label, index, labels) {
                      if (label > 999 || label < -999) {
-                        return label / 1000 + 'k'
+                        return label / 1000 + "k"
                      } else {
                         return label
                      }
-                  }
-               }
-            }
-         ]
-      }
+                  },
+               },
+            },
+         ],
+      },
    }
 
    return (
-      <div className={`chart-wrapper ${classUpdate}`}>
+      <div className={`chart-wrapper ${themeClass}`}>
          <Bar data={chartData} options={options} />
       </div>
    )

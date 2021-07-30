@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 
-import { formatChartDate } from './../utils/commonFunctions'
-import TimeSeriesHead from './TimeSeriesHead'
-import Chart from './Chart'
+import { formatChartDate } from "../utils/commonFunctions"
+import Chart from "./Chart"
+import TimeSeriesHead from "./TimeSeriesHead"
 
 // Filter data using stateCode and range
 const filterData = (data, { stateCode, range }) => {
@@ -29,7 +29,8 @@ const filterData = (data, { stateCode, range }) => {
 
       confirmedData.push(delta?.confirmed ?? 0)
       activeData.push(
-         (delta?.confirmed ?? 0) - ((delta?.recovered ?? 0) + (delta?.deceased ?? 0))
+         (delta?.confirmed ?? 0) -
+            ((delta?.recovered ?? 0) + (delta?.deceased ?? 0))
       )
       recoveredData.push(delta?.recovered ?? 0)
       deceasedData.push(delta?.deceased ?? 0)
@@ -46,19 +47,21 @@ const filterData = (data, { stateCode, range }) => {
          { Confirmed: confirmedData },
          { Active: activeData },
          { Recovered: recoveredData },
-         { Deceased: deceasedData }
-      ]
+         { Deceased: deceasedData },
+      ],
    }
 }
 
 const TimeSeries = () => {
    const [timeSeriesData, setTimeSeriesData] = useState({})
-   const [options, setOptions] = useState({ stateCode: 'DL', range: 31 })
+   const [options, setOptions] = useState({ stateCode: "DL", range: 31 })
 
    // Fetch statewise daily data
    useEffect(() => {
       const getData = async () => {
-         const response = await axios.get('https://api.covid19india.org/v4/timeseries.json')
+         const response = await axios.get(
+            "https://api.covid19india.org/v4/timeseries.json"
+         )
 
          setTimeSeriesData(response.data)
       }
@@ -77,15 +80,11 @@ const TimeSeries = () => {
       <section className="time-series">
          <TimeSeriesHead handleOptions={handleOptions} />
          <div className="time-series-charts">
-            {
-               filteredData.stats.map((stat, index) => {
-                  return <Chart
-                     key={index}
-                     dates={filteredData.dates}
-                     stats={stat}
-                  />
-               })
-            }
+            {filteredData.stats.map((stat, index) => {
+               return (
+                  <Chart key={index} dates={filteredData.dates} stats={stat} />
+               )
+            })}
          </div>
       </section>
    )

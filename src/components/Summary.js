@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react"
 
-import { SUMMARY_TITLES } from './../data/constants'
-import { capitalize, formatNumber, getDateTime } from './../utils/commonFunctions'
-import IconClock from './icons/IconClock'
-import ThemeContext from '../context/ThemeContext'
+import { SUMMARY_TITLES } from "../data/constants"
+import { capitalize, formatNumber, getDateTime } from "../utils/commonFunctions"
+import IconClock from "./icons/IconClock"
+import ThemeContext from "../context/ThemeContext"
 
 const Summary = ({ summary }) => {
    return (
@@ -15,34 +15,25 @@ const Summary = ({ summary }) => {
             </div>
          </div>
          <div className="summary-inner">
-            {
-               SUMMARY_TITLES.map((stat, index) => {
-                  return (
-                     <SummaryBox
-                        key={index}
-                        summary={summary}
-                        stat={stat}
-                     />
-                  )
-               })
-            }
+            {SUMMARY_TITLES.map((stat, index) => {
+               return <SummaryBox key={index} summary={summary} stat={stat} />
+            })}
          </div>
       </section>
    )
 }
 
 const SummaryBox = ({ summary, stat }) => {
-   const { darkTheme } = useContext(ThemeContext)
+   const themeCtx = useContext(ThemeContext)
 
-   const classUpdate = darkTheme && 'dark'
+   const themeClass = themeCtx.darkTheme ? "dark" : ""
 
    return (
-      <div className={`summary-box ${classUpdate}`}>
+      <div className={`summary-box ${themeClass}`}>
          <h3 className="title">{capitalize(stat.title)}</h3>
          <div className="new-cases">
-            {
-               summary[`delta${stat.title}`] && '+' + formatNumber(summary[`delta${stat.title}`])
-            }
+            {summary[`delta${stat.title}`] &&
+               "+" + formatNumber(summary[`delta${stat.title}`])}
          </div>
          <div className="total-cases">{formatNumber(summary[stat.title])}</div>
          <i className="icon">{stat.icon}</i>
