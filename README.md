@@ -26,11 +26,11 @@ Tracking the impact of COVID-19 in India. Hosted with [Netlify](https://www.netl
    ```sh
    npm run dev
    ```
-   
+
    Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
 
    You can start editing the page by modifying `src/index.js`. The page auto-updates as you edit the file.
-   
+
 ## Building for Production
 
 1. Generate a full static production build
@@ -38,7 +38,7 @@ Tracking the impact of COVID-19 in India. Hosted with [Netlify](https://www.netl
    ```sh
    npm run build
    ```
-   
+
 ## LICENSE
 
 The [MIT](LICENSE) License

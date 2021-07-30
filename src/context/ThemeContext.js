@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react"
 
 const ThemeContext = React.createContext()
 
@@ -12,7 +12,7 @@ const ThemeProvider = ({ children }) => {
    // Context data to be shared
    const contextData = {
       darkTheme,
-      handleTheme: handleDarkTheme
+      handleTheme: handleDarkTheme,
    }
 
    return (

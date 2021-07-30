@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format } from "date-fns"
 
 // Capitalize first letter
 const capitalize = (str) => {
@@ -11,12 +11,12 @@ const capitalize = (str) => {
 const formatNumber = (str) => {
    const num = parseInt(str)
 
-   return num.toLocaleString('en-IN')
+   return num.toLocaleString("en-IN")
 }
 
 // Format date (31/12/2020)
 const formatDate = (str) => {
-   const [day, month, year] = str.split('/')
+   const [day, month, year] = str.split("/")
    const newDate = new Date(year, month - 1, day)
 
    return format(newDate, "dd MMMM")
@@ -24,7 +24,7 @@ const formatDate = (str) => {
 
 // Format date (2020-12-31)
 const formatChartDate = (str) => {
-   const [year, month, day] = str.split('-')
+   const [year, month, day] = str.split("-")
    const newDate = new Date(year, month - 1, day)
 
    return format(newDate, "MMM dd")
@@ -32,7 +32,7 @@ const formatChartDate = (str) => {
 
 // Format date and military time (31/12/2020 09:00:00)
 const getDateTime = (str) => {
-   const [date, time] = str.split(' ')
+   const [date, time] = str.split(" ")
 
    const [day, month, year] = date.split("/")
    const [hour, min, sec] = time.split(":")
@@ -41,10 +41,4 @@ const getDateTime = (str) => {
    return format(newDate, "dd MMM, hh:mm aaa")
 }
 
-export {
-   capitalize,
-   formatNumber,
-   formatDate,
-   formatChartDate,
-   getDateTime
-}
+export { capitalize, formatNumber, formatDate, formatChartDate, getDateTime }
