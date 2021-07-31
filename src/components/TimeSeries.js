@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 
 import { formatChartDate } from "../utils/commonFunctions"
+import useHttp from "../hooks/useHttp"
 import Chart from "./Chart"
 import TimeSeriesHead from "./TimeSeriesHead"
 
@@ -53,21 +54,17 @@ const filterData = (data, { stateCode, range }) => {
 }
 
 const TimeSeries = () => {
+   const { isLoading, error, sendRequest: fetchData } = useHttp()
    const [timeSeriesData, setTimeSeriesData] = useState({})
    const [options, setOptions] = useState({ stateCode: "DL", range: 31 })
 
-   // Fetch statewise daily data
+   // Fetch statewise (daily) data
    useEffect(() => {
-      const getData = async () => {
-         const response = await axios.get(
-            "https://api.covid19india.org/v4/timeseries.json"
-         )
-
-         setTimeSeriesData(response.data)
-      }
-
-      getData()
-   }, [])
+      fetchData(
+         { url: "https://api.covid19india.org/v4/timeseries.json" },
+         setTimeSeriesData
+      )
+   }, [fetchData])
 
    // Set stateCode/ range
    const handleOptions = (option, value) => {
