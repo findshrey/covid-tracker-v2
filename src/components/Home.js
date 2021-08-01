@@ -9,6 +9,7 @@ import Tested from "./Tested"
 import TimeSeries from "./TimeSeries"
 import ThemeContext from "../context/ThemeContext"
 import Vaccine from "./Vaccine"
+import useHttp from "../hooks/useHttp"
 
 // Sort table data by selected option
 const sortData = (data, sortBy) => {
@@ -39,19 +40,15 @@ const Home = () => {
    const [covidStats, setCovidStats] = useState({})
    const [sortBy, setSortBy] = useState("confirmed")
    const themeCtx = useContext(ThemeContext)
+   const { isLoading, error, sendRequest: fetchData } = useHttp()
 
    // Fetch data from endpoint
    useEffect(() => {
-      const getData = async () => {
-         const response = await axios.get(
-            "https://api.covid19india.org/data.json"
-         )
-
-         setCovidStats(response.data)
-      }
-
-      getData()
-   }, [])
+      fetchData(
+         { url: "https://api.covid19india.org/data.json" },
+         setCovidStats
+      )
+   }, [fetchData])
 
    // Set sort option
    const handleSortOption = (option) => {
@@ -65,7 +62,12 @@ const Home = () => {
    return (
       <main className={`home ${themeClass}`}>
          <div className="container">
-            {Object.keys(covidStats).length > 0 ? (
+            {isLoading && <Spinner />}
+            {!isLoading && error && <p>{error}</p>}
+            {!isLoading && !error && Object.keys(covidStats).length === 0 && (
+               <p>Found no data to show.</p>
+            )}
+            {!isLoading && Object.keys(covidStats).length > 0 && (
                <>
                   <Summary summary={covidStats.statewise[0]} />
                   <div className="statistics">
@@ -80,8 +82,6 @@ const Home = () => {
                      </section>
                   </div>
                </>
-            ) : (
-               <Spinner />
             )}
          </div>
       </main>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 
-import { formatChartDate } from "../utils/commonFunctions"
-import useHttp from "../hooks/useHttp"
 import Chart from "./Chart"
 import TimeSeriesHead from "./TimeSeriesHead"
+import useHttp from "../hooks/useHttp"
+import { formatChartDate } from "../utils/commonFunctions"
 
 // Filter data using stateCode and range
 const filterData = (data, { stateCode, range }) => {
@@ -54,9 +54,9 @@ const filterData = (data, { stateCode, range }) => {
 }
 
 const TimeSeries = () => {
-   const { isLoading, error, sendRequest: fetchData } = useHttp()
    const [timeSeriesData, setTimeSeriesData] = useState({})
    const [options, setOptions] = useState({ stateCode: "DL", range: 31 })
+   const { isLoading, error, sendRequest: fetchData } = useHttp()
 
    // Fetch statewise (daily) data
    useEffect(() => {
@@ -75,14 +75,27 @@ const TimeSeries = () => {
 
    return (
       <section className="time-series">
-         <TimeSeriesHead handleOptions={handleOptions} />
-         <div className="time-series-charts">
-            {filteredData.stats.map((stat, index) => {
-               return (
-                  <Chart key={index} dates={filteredData.dates} stats={stat} />
-               )
-            })}
-         </div>
+         {isLoading && <p>Loading...</p>}
+         {!isLoading && error && <p>{error}</p>}
+         {!isLoading && !error && Object.keys(timeSeriesData).length === 0 && (
+            <p>Found no items to show.</p>
+         )}
+         {!isLoading && Object.keys(timeSeriesData).length > 0 && (
+            <>
+               <TimeSeriesHead handleOptions={handleOptions} />
+               <div className="time-series-charts">
+                  {filteredData.stats.map((stat, index) => {
+                     return (
+                        <Chart
+                           key={index}
+                           dates={filteredData.dates}
+                           stats={stat}
+                        />
+                     )
+                  })}
+               </div>
+            </>
+         )}
       </section>
    )
 }
