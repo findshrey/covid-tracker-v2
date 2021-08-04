@@ -6,7 +6,7 @@
 
 .tested-left {
    padding-right: 3rem;
-   
+
    h2 {
       background-color: lighten($c-navy, 33%);
       border-radius: 5px;
@@ -30,7 +30,8 @@
 .tested-right {
    text-align: end;
 
-   h3, span {
+   h3,
+   span {
       color: lighten($c-purple, 15%);
    }
 

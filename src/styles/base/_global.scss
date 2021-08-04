@@ -1,5 +1,7 @@
 // Global Styles
-*, *::before, *::after {
+*,
+*::before,
+*::after {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
@@ -31,7 +33,14 @@ h3 {
    font-size: $font-s;
 }
 
-div, span, p, a, li, button, label, input {
+div,
+span,
+p,
+a,
+li,
+button,
+label,
+input {
    font-size: $font-s;
    font-weight: 600;
 }
@@ -48,7 +57,7 @@ a {
 button {
    cursor: pointer;
    font-family: inherit;
-   
+
    &:focus {
       outline: none;
    }

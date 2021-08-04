@@ -13,7 +13,7 @@
    display: inline-block;
    margin-bottom: 0.5rem;
    overflow: hidden;
-   vertical-align:top;
+   vertical-align: top;
 
    .range-btn {
       background-color: lighten($c-mustard, 40%);
@@ -21,11 +21,11 @@
       border-right: 2px solid lighten($c-mustard, 30%);
       color: $c-mustard;
       padding: 1rem;
-   
+
       &:last-child {
          border-right: none;
       }
-   
+
       &.active {
          background-color: lighten($c-mustard, 30%);
       }
@@ -49,7 +49,8 @@
 
 .state-list {
    appearance: none;
-   background: url('./../images/chevron.svg') no-repeat calc(100% - 0.8rem) center darken($c-white, 3%);
+   background: url("./../images/chevron.svg") no-repeat calc(100% - 0.8rem)
+      center darken($c-white, 3%);
    border: 2px solid darken($c-white, 13%);
    border-radius: 5px;
    color: $c-gray;
@@ -82,7 +83,7 @@
 
    &:nth-child(1) .chartjs-render-monitor {
       background-color: lighten($c-red, 43%);
-   } 
+   }
 
    &:nth-child(2) .chartjs-render-monitor {
       background-color: lighten($c-blue, 45%);
@@ -90,7 +91,7 @@
 
    &:nth-child(3) .chartjs-render-monitor {
       background-color: lighten($c-green, 50%);
-   } 
+   }
 
    &:nth-child(4) .chartjs-render-monitor {
       background-color: lighten($c-gray, 50%);
@@ -99,16 +100,16 @@
    &.dark {
       &:nth-child(1) .chartjs-render-monitor {
          background-color: rgba($c-red, 0.2);
-      } 
-   
+      }
+
       &:nth-child(2) .chartjs-render-monitor {
          background-color: rgba($c-blue, 0.2);
       }
-   
+
       &:nth-child(3) .chartjs-render-monitor {
          background-color: rgba($c-green, 0.2);
-      } 
-   
+      }
+
       &:nth-child(4) .chartjs-render-monitor {
          background-color: rgba($c-gray, 0.2);
       }
