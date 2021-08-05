@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 
+import { formatChartDate } from "../utils/commonFunctions"
 import Chart from "./Chart"
 import TimeSeriesHead from "./TimeSeriesHead"
 import useHttp from "../hooks/useHttp"
-import { formatChartDate } from "../utils/commonFunctions"
 
 // Filter data using stateCode and range
 const filterData = (data, { stateCode, range }) => {

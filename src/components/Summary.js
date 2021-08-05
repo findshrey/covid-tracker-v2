@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 
 import { SUMMARY_TITLES } from "../data/constants"
 import { capitalize, formatNumber, getDateTime } from "../utils/commonFunctions"
-import IconClock from "./icons/IconClock"
+import IconClock from "../icons/IconClock"
 import ThemeContext from "../context/ThemeContext"
 
 const Summary = ({ summary }) => {

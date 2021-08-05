@@ -1,9 +1,9 @@
 import React from "react"
 
-import IconConfirmed from "./../components/icons/IconConfirmed"
-import IconActive from "./../components/icons/IconActive"
-import IconRecovered from "./../components/icons/IconRecovered"
-import IconDeaths from "./../components/icons/IconDeaths"
+import IconActive from "../icons/IconActive"
+import IconConfirmed from "../icons/IconConfirmed"
+import IconDeaths from "../icons/IconDeaths"
+import IconRecovered from "../icons/IconRecovered"
 
 const SUMMARY_TITLES = [
    {
