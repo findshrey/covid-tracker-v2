@@ -14,7 +14,7 @@ const filterData = (data, { stateCode, range }) => {
    // Datewise state's data
    const stateData = data[stateCode].dates
 
-   // Extract dates
+   // Extract dates within range
    let stateDates = Object.keys(stateData)
    stateDates = stateDates.slice(-range)
 
@@ -88,7 +88,7 @@ const TimeSeries = () => {
                         <Chart
                            key={index}
                            dates={filteredData.dates}
-                           stats={stat}
+                           stat={stat}
                         />
                      )
                   })}

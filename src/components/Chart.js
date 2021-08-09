@@ -8,12 +8,12 @@ defaults.global.defaultFontSize = 10
 defaults.global.defaultFontStyle = 600
 defaults.global.datasets.bar.categoryPercentage = 1.0
 
-const Chart = ({ dates, stats }) => {
+const Chart = ({ dates, stat }) => {
    const themeCtx = useContext(ThemeContext)
 
    const themeClass = themeCtx.darkTheme ? "dark" : ""
 
-   const chartLabel = Object.keys(stats)[0]
+   const chartLabel = Object.keys(stat)[0]
    let chartColor
 
    switch (chartLabel) {
@@ -36,7 +36,7 @@ const Chart = ({ dates, stats }) => {
       datasets: [
          {
             label: chartLabel,
-            data: stats[chartLabel], // X-axis data
+            data: stat[chartLabel], // X-axis data
             backgroundColor: chartColor,
             borderColor: chartColor,
             borderWidth: 1,
