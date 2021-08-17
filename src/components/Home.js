@@ -44,7 +44,7 @@ const Home = () => {
    // Fetch data from endpoint
    useEffect(() => {
       fetchData(
-         { url: "https://api.covid19india.org/data.json" },
+         { url: "https://data.covid19india.org/data.json" },
          setCovidStats
       )
    }, [fetchData])

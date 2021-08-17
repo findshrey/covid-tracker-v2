@@ -60,7 +60,7 @@ const TimeSeries = () => {
    // Fetch statewise (daily) data
    useEffect(() => {
       fetchData(
-         { url: "https://api.covid19india.org/v4/timeseries.json" },
+         { url: "https://data.covid19india.org/v4/timeseries.json" },
          setTimeSeriesData
       )
    }, [fetchData])
