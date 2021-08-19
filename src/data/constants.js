@@ -5,6 +5,9 @@ import IconConfirmed from "../icons/IconConfirmed"
 import IconDeaths from "../icons/IconDeaths"
 import IconRecovered from "../icons/IconRecovered"
 
+const API_DOMAIN_ROOT = "https://data.covid19india.org/data.json"
+const API_DOMAIN_TIMESERIES = "https://data.covid19india.org/v4/timeseries.json"
+
 const SUMMARY_TITLES = [
    {
       title: "confirmed",
@@ -86,4 +89,11 @@ const TIMESERIES_RANGE = [
    },
 ]
 
-export { SUMMARY_TITLES, TABLE_HEADINGS, STATE_NAMES, TIMESERIES_RANGE }
+export {
+   API_DOMAIN_ROOT,
+   API_DOMAIN_TIMESERIES,
+   SUMMARY_TITLES,
+   TABLE_HEADINGS,
+   STATE_NAMES,
+   TIMESERIES_RANGE,
+}

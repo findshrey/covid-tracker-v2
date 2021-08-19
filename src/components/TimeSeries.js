@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 
+import { API_DOMAIN_TIMESERIES } from "../data/constants"
 import { formatChartDate } from "../utils/commonFunctions"
 import Chart from "./Chart"
 import TimeSeriesHead from "./TimeSeriesHead"
@@ -59,10 +60,7 @@ const TimeSeries = () => {
 
    // Fetch statewise (daily) data
    useEffect(() => {
-      fetchData(
-         { url: "https://data.covid19india.org/v4/timeseries.json" },
-         setTimeSeriesData
-      )
+      fetchData({ url: API_DOMAIN_TIMESERIES }, setTimeSeriesData)
    }, [fetchData])
 
    // Set stateCode/ range

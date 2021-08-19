@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react"
 
+import { API_DOMAIN_ROOT } from "../data/constants"
 import Spinner from "./Spinner"
 import Summary from "./Summary"
 import Table from "./Table"
@@ -43,10 +44,7 @@ const Home = () => {
 
    // Fetch data from endpoint
    useEffect(() => {
-      fetchData(
-         { url: "https://data.covid19india.org/data.json" },
-         setCovidStats
-      )
+      fetchData({ url: API_DOMAIN_ROOT }, setCovidStats)
    }, [fetchData])
 
    // Set sort option
