@@ -6,12 +6,10 @@ import ThemeContext from "../context/ThemeContext"
 const TimeSeriesHead = ({ handleOptions }) => {
    const [activeBtn, setActiveBtn] = useState(0)
    const [selectedState, setSelectedState] = useState("DL")
-   const themeCtx = useContext(ThemeContext)
+   const { themeClass } = useContext(ThemeContext)
 
    // Extract state codes
    const stateCodes = Object.keys(STATE_NAMES)
-
-   const themeClass = themeCtx.darkTheme ? "dark" : ""
 
    return (
       <header className="time-series-head">

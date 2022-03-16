@@ -5,9 +5,7 @@ import { formatNumber } from "../utils/commonFunctions"
 import ThemeContext from "../context/ThemeContext"
 
 const Table = ({ sortedStats }) => {
-   const themeCtx = useContext(ThemeContext)
-
-   const themeClass = themeCtx.darkTheme ? "dark" : ""
+   const { themeClass } = useContext(ThemeContext)
 
    return (
       <div className="table">

@@ -5,9 +5,7 @@ import ThemeContext from "../context/ThemeContext"
 
 const TableHead = ({ handleSortOption }) => {
    const [activeBtn, setActiveBtn] = useState(0)
-   const themeCtx = useContext(ThemeContext)
-
-   const themeClass = themeCtx.darkTheme ? "dark" : ""
+   const { themeClass } = useContext(ThemeContext)
 
    return (
       <div className={`table-head ${themeClass}`}>

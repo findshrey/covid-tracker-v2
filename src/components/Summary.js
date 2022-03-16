@@ -24,9 +24,7 @@ const Summary = ({ summary }) => {
 }
 
 const SummaryBox = ({ summary, stat }) => {
-   const themeCtx = useContext(ThemeContext)
-
-   const themeClass = themeCtx.darkTheme ? "dark" : ""
+   const { themeClass } = useContext(ThemeContext)
 
    return (
       <div className={`summary-box ${themeClass}`}>

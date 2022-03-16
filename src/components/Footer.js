@@ -3,9 +3,7 @@ import React, { useContext } from "react"
 import ThemeContext from "../context/ThemeContext"
 
 const Footer = () => {
-   const themeCtx = useContext(ThemeContext)
-
-   const themeClass = themeCtx.darkTheme ? "dark" : ""
+   const { themeClass } = useContext(ThemeContext)
 
    return (
       <footer className={themeClass}>

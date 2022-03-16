@@ -5,13 +5,15 @@ const ThemeContext = React.createContext()
 const ThemeProvider = ({ children }) => {
    const [darkTheme, setDarkTheme] = useState(false)
 
+   const themeClass = darkTheme ? "dark" : ""
+
    const handleDarkTheme = () => {
       setDarkTheme((prevTheme) => !prevTheme)
    }
 
    // Context data to be shared
    const contextData = {
-      darkTheme,
+      themeClass,
       handleTheme: handleDarkTheme,
    }
 
